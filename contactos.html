@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Información de Contacto - CBTA 140</title>
+  <style>
+    :root {
+      --primary-color: #4CAF50;
+      --secondary-color: #333;
+      --background-color: #f5f5f5;
+      --card-color: #fff;
+      --text-color: #333;
+      --shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--background-color);
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .contacto {
+      background-color: var(--card-color);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .contacto h1 {
+      text-align: center;
+      color: var(--primary-color);
+      margin-bottom: 25px;
+      font-size: 28px;
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 10px;
+    }
+
+    .contacto h3 {
+      color: var(--primary-color);
+      margin: 25px 0 15px 0;
+      font-size: 20px;
+    }
+
+    .datos-container {
+      margin-bottom: 20px;
+    }
+
+    .dato {
+      display: flex;
+      margin-bottom: 12px;
+      font-size: 16px;
+      padding: 8px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .dato:hover {
+      background-color: rgba(76, 175, 80, 0.1);
+    }
+
+    .etiqueta {
+      font-weight: bold;
+      width: 90px;
+      color: var(--secondary-color);
+    }
+
+    .valor {
+      flex: 1;
+    }
+
+    .enlaces {
+      list-style: none;
+    }
+
+    .enlaces li {
+      margin-bottom: 12px;
+    }
+
+    .enlaces a {
+      display: block;
+      color: var(--text-color);
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: all 0.3s;
+      background-color: rgba(76, 175, 80, 0.1);
+    }
+
+    .enlaces a:hover {
+      background-color: var(--primary-color);
+      color: white;
+      transform: translateX(5px);
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    /* Media queries para dispositivos móviles */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+
+      .contacto {
+        padding: 20px;
+        border-radius: 8px;
+      }
+
+      .contacto h1 {
+        font-size: 24px;
+      }
+
+      .dato {
+        flex-direction: column;
+      }
+
+      .etiqueta {
+        width: 100%;
+        margin-bottom: 4px;
+      }
+
+      .enlaces a {
+        padding: 12px 15px; /* Botones más grandes en móvil para facilitar el toque */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="contacto">
+    <h1>Contacto CBTA 140</h1>
+    
+    <div class="datos-container">
+      <div class="dato">
+        <span class="etiqueta">Correo:</span>
+        <span class="valor">direccion@cbta140.com</span>
+      </div>
+      
+      <div class="dato">
+        <span class="etiqueta">Teléfono:</span>
+        <span class="valor">313-327-0280</span>
+      </div>
+      
+      <div class="dato">
+        <span class="etiqueta">Municipio:</span>
+        <span class="valor">Coahuayana</span>
+      </div>
+      
+      <div class="dato">
+        <span class="etiqueta">Estado:</span>
+        <span class="valor">Michoacán</span>
+      </div>
+      
+      <div class="dato">
+        <span class="etiqueta">Dirección:</span>
+        <span class="valor">Km 0.5 Carretera a Zapotán</span>
+      </div>
+    </div>
+    
+    <h3>Otros sitios del CBTA 140</h3>
+    <ul class="enlaces">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="Agricultura.html">Agricultura</a></li>
+      <li><a href="ganaderia.html">Ganadería</a></li>
+      <li><a href="RentaDeMangos.html">Renta de huertas</a></li>
+    </ul>
+    
+    <div class="footer">
+      &copy; 2025 CBTA Nº140. Todos los derechos reservados.
+    </div>
+  </div>
+</body>
+</html>

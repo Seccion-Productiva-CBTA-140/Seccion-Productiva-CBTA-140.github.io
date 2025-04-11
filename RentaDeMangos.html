@@ -1,0 +1,648 @@
+<!-- Nueva sección para Rentas de Huertas de Mango -->
+<div class="content">
+    <h1>Rentas de Huertas de Mango</h1>
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #f8f9fa;
+            --accent-color: #43a047;
+            --text-color: #333;
+            --border-color: #dee2e6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        nav {
+            background-color: #1b5e20;
+            padding: 10px 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav li {
+            margin: 0 15px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .content {
+            flex: 2;
+            min-width: 300px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar {
+            flex: 1;
+            min-width: 250px;
+            margin-left: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        h1, h2, h3 {
+            color: var(--primary-color);
+        }
+        
+        .card {
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .card h3 {
+            margin-top: 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+        
+        button, .button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover, .button:hover {
+            background-color: var(--accent-color);
+        }
+        
+        .search-bar {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .search-bar input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px 0 0 4px;
+        }
+        
+        .search-bar button {
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-weight: 500;
+        }
+        
+        .tab.active {
+            border-bottom-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        .crop-selector {
+            margin-bottom: 20px;
+        }
+        
+        .crop-selector select {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            width: 100%;
+        }
+        
+        .calendar {
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+        
+        .calendar-day {
+            text-align: center;
+            padding: 5px;
+            background-color: white;
+            border-radius: 3px;
+        }
+        
+        .calendar-day.active {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        .weather-widget {
+            background-color: #e1f5fe;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .weather-forecast {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        
+        .weather-day {
+            text-align: center;
+            flex: 1;
+        }
+        
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 5px 0;
+            }
+            
+            .weather-forecast {
+                flex-wrap: wrap;
+            }
+            
+            .weather-day {
+                flex-basis: 33%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+    <div class="search-bar">
+        <input type="text" placeholder="Buscar por ubicación, variedad, tamaño...">
+        <button id="search-mango-button">Buscar</button>
+    </div>
+    
+    <div class="tabs">
+        <button class="tab active" data-tab="mango-tab1">Huertas Disponibles</button>
+        <button class="tab" data-tab="mango-tab2">Calendario de Cosecha</button>
+        <button class="tab" data-tab="mango-tab3">Información para Arrendatarios</button>
+    </div>
+    
+    <div id="mango-tab1" class="tab-content active">
+        <div class="card">
+            <h3>Huertas de Mango Disponibles</h3>
+            <p>Explore nuestra selección de huertas de mango disponibles para renta en la región. Las rentas incluyen acceso a sistemas de riego, asistencia técnica y opciones de cosecha.</p>
+            
+            <div class="crop-selector">
+                <select id="mango-region-select">
+                    <option value="norte">Región Norte</option>
+                    <option value="central">Región Central</option>
+                    <option value="sur">Región Sur</option>
+                </select>
+            </div>
+            
+            <div class="mango-listings">
+                <div class="card">
+                    <h4>Huerta La Esperanza</h4>
+                    <p><strong>Ubicación:</strong> Zona Norte, a 5 km del CBTA 140</p>
+                    <p><strong>Tamaño:</strong> 5 hectáreas</p>
+                    <p><strong>Variedad:</strong> Mango Ataulfo y Tommy Atkins</p>
+                    <p><strong>Precio de renta:</strong> $35,000 por temporada</p>
+                    <p><strong>Características:</strong> Sistema de riego por goteo, árboles maduros (7-10 años), bodega para almacenamiento.</p>
+                    <button class="view-details">Ver detalles</button>
+                </div>
+                
+                <div class="card">
+                    <h4>Huerta El Paraíso</h4>
+                    <p><strong>Ubicación:</strong> Zona Central, acceso por carretera principal</p>
+                    <p><strong>Tamaño:</strong> 8 hectáreas</p>
+                    <p><strong>Variedad:</strong> Mango Kent y Haden</p>
+                    <p><strong>Precio de renta:</strong> $42,000 por temporada</p>
+                    <p><strong>Características:</strong> Sistema de riego tecnificado, certificación orgánica en trámite, incluye equipo de fumigación.</p>
+                    <button class="view-details">Ver detalles</button>
+                </div>
+                
+                <div class="card">
+                    <h4>Huerta Los Mangales</h4>
+                    <p><strong>Ubicación:</strong> Zona Sur, cercana al río</p>
+                    <p><strong>Tamaño:</strong> 3 hectáreas</p>
+                    <p><strong>Variedad:</strong> Mango Manila y Criollo</p>
+                    <p><strong>Precio de renta:</strong> $28,000 por temporada</p>
+                    <p><strong>Características:</strong> Suelo fértil, acceso a agua natural, incluye asesoría técnica mensual.</p>
+                    <button class="view-details">Ver detalles</button>
+                </div>
+            </div>
+            
+            <button id="load-more-orchards">Cargar más huertas</button>
+        </div>
+    </div>
+    
+    <div id="mango-tab2" class="tab-content">
+        <div class="card">
+            <h3>Calendario de Cosecha de Mango</h3>
+            
+            <div class="calendar">
+                <div class="calendar-header">
+                    <button id="prev-month-mango">&lt;</button>
+                    <h4 id="current-month-mango">Abril 2025</h4>
+                    <button id="next-month-mango">&gt;</button>
+                </div>
+                
+                <div class="calendar-grid">
+                    <div class="calendar-day">L</div>
+                    <div class="calendar-day">M</div>
+                    <div class="calendar-day">M</div>
+                    <div class="calendar-day">J</div>
+                    <div class="calendar-day">V</div>
+                    <div class="calendar-day">S</div>
+                    <div class="calendar-day">D</div>
+                    
+                    <!-- Días del mes (el mismo formato que el calendario original) -->
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day">1</div>
+                    <div class="calendar-day">2</div>
+                    <div class="calendar-day active">3</div>
+                    <div class="calendar-day">4</div>
+                    <div class="calendar-day">5</div>
+                    <div class="calendar-day">6</div>
+                    
+                    <!-- ... continuar con el resto de los días ... -->
+                    <div class="calendar-day">7</div>
+                    <div class="calendar-day">8</div>
+                    <div class="calendar-day">9</div>
+                    <div class="calendar-day">10</div>
+                    <div class="calendar-day">11</div>
+                    <div class="calendar-day">12</div>
+                    <div class="calendar-day">13</div>
+                    
+                    <div class="calendar-day">14</div>
+                    <div class="calendar-day">15</div>
+                    <div class="calendar-day">16</div>
+                    <div class="calendar-day">17</div>
+                    <div class="calendar-day">18</div>
+                    <div class="calendar-day">19</div>
+                    <div class="calendar-day">20</div>
+                    
+                    <div class="calendar-day">21</div>
+                    <div class="calendar-day">22</div>
+                    <div class="calendar-day">23</div>
+                    <div class="calendar-day">24</div>
+                    <div class="calendar-day">25</div>
+                    <div class="calendar-day">26</div>
+                    <div class="calendar-day">27</div>
+                    
+                    <div class="calendar-day">28</div>
+                    <div class="calendar-day">29</div>
+                    <div class="calendar-day">30</div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                </div>
+            </div>
+            
+            <div class="mango-varieties-timeline">
+                <h4>Temporada de Cosecha por Variedad</h4>
+                <div class="timeline">
+                    <div class="timeline-month">Ene</div>
+                    <div class="timeline-month">Feb</div>
+                    <div class="timeline-month">Mar</div>
+                    <div class="timeline-month">Abr</div>
+                    <div class="timeline-month">May</div>
+                    <div class="timeline-month">Jun</div>
+                    <div class="timeline-month">Jul</div>
+                    <div class="timeline-month">Ago</div>
+                    <div class="timeline-month">Sep</div>
+                    <div class="timeline-month">Oct</div>
+                    <div class="timeline-month">Nov</div>
+                    <div class="timeline-month">Dic</div>
+                </div>
+                
+                <div class="variety-timeline">
+                    <div class="variety-name">Ataulfo</div>
+                    <div class="variety-bar" style="grid-column: 3 / 7; background-color: var(--primary-color);"></div>
+                </div>
+                
+                <div class="variety-timeline">
+                    <div class="variety-name">Tommy Atkins</div>
+                    <div class="variety-bar" style="grid-column: 4 / 8; background-color: var(--accent-color);"></div>
+                </div>
+                
+                <div class="variety-timeline">
+                    <div class="variety-name">Kent</div>
+                    <div class="variety-bar" style="grid-column: 5 / 9; background-color: #8bc34a;"></div>
+                </div>
+                
+                <div class="variety-timeline">
+                    <div class="variety-name">Manila</div>
+                    <div class="variety-bar" style="grid-column: 4 / 9; background-color: #ffc107;"></div>
+                </div>
+                
+                <div class="variety-timeline">
+                    <div class="variety-name">Criollo</div>
+                    <div class="variety-bar" style="grid-column: 6 / 10; background-color: #ff9800;"></div>
+                </div>
+            </div>
+            
+            <div id="mango-activity-info">
+                <h4>Actividades para Abril en Huertas de Mango</h4>
+                <ul id="mango-activities-list">
+                    <li>Preparación para cosecha de variedades tempranas (Ataulfo)</li>
+                    <li>Monitoreo de maduración en árboles</li>
+                    <li>Mantenimiento de sistemas de riego</li>
+                    <li>Control preventivo de plagas</li>
+                    <li>Planificación logística para la cosecha</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="mango-tab3" class="tab-content">
+        <div class="card">
+            <h3>Información para Arrendatarios</h3>
+            
+            <div class="info-section">
+                <h4>Requisitos para Rentar una Huerta de Mango</h4>
+                <ul>
+                    <li>Identificación oficial vigente</li>
+                    <li>Comprobante de domicilio reciente</li>
+                    <li>Depósito de garantía (30% del valor total)</li>
+                    <li>Firma de contrato de arrendamiento</li>
+                    <li>Referencias personales o comerciales</li>
+                </ul>
+            </div>
+            
+            <div class="info-section">
+                <h4>Servicios Incluidos</h4>
+                <ul>
+                    <li>Asesoría técnica mensual</li>
+                    <li>Acceso a sistemas de riego</li>
+                    <li>Mantenimiento básico de infraestructura</li>
+                    <li>Apoyo en trámites de certificación (orgánica, comercial)</li>
+                    <li>Contactos con compradores potenciales</li>
+                </ul>
+            </div>
+            
+            <div class="info-section">
+                <h4>Modalidades de Pago</h4>
+                <ul>
+                    <li><strong>Renta Fija:</strong> Pago establecido por temporada, independiente de la producción</li>
+                    <li><strong>Renta Variable:</strong> Porcentaje sobre la producción total (generalmente 30-40%)</li>
+                    <li><strong>Mixta:</strong> Cuota base más porcentaje reducido sobre producción</li>
+                </ul>
+            </div>
+            
+            <div class="info-section">
+                <h4>Preguntas Frecuentes</h4>
+                <div class="faq-item">
+                    <h5>¿Cuál es la duración típica de un contrato de arrendamiento?</h5>
+                    <p>Los contratos suelen ser por temporada (6-8 meses) o anuales con opción a renovación.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h5>¿Quién es responsable del mantenimiento de los árboles?</h5>
+                    <p>El arrendatario se encarga del mantenimiento regular (poda, fumigación), mientras que el propietario cubre reparaciones de infraestructura y sistemas de riego.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h5>¿Se ofrece capacitación para el manejo de la huerta?</h5>
+                    <p>Sí, se incluye una capacitación inicial y asesorías técnicas mensuales durante el período de arrendamiento.</p>
+                </div>
+            </div>
+            
+            <button id="contact-about-rentals">Contactar para más información</button>
+        </div>
+    </div>
+</div>
+
+<!-- Estilos adicionales para la sección de mango -->
+<style>
+    .mango-listings {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        margin: 20px 0;
+    }
+    
+    .variety-timeline {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    
+    .variety-name {
+        font-weight: bold;
+        padding-right: 10px;
+    }
+    
+    .variety-bar {
+        height: 25px;
+        border-radius: 4px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .timeline {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        margin: 15px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .timeline-month {
+        text-align: center;
+        font-size: 0.8em;
+        padding: 5px 0;
+    }
+    
+    .faq-item {
+        margin-bottom: 15px;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 10px;
+    }
+    
+    .faq-item h5 {
+        color: var(--primary-color);
+        margin-bottom: 5px;
+    }
+    
+    .info-section {
+        margin-bottom: 20px;
+    }
+</style>
+
+<!-- Script adicional para la sección de mango -->
+<script>
+    // Funcionalidad para las pestañas de mango
+    document.querySelectorAll('.tab[data-tab^="mango-tab"]').forEach(tab => {
+        tab.addEventListener('click', () => {
+            const tabId = tab.getAttribute('data-tab');
+            
+            // Desactivar todas las pestañas y contenidos de mango
+            document.querySelectorAll('.tab[data-tab^="mango-tab"]').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('[id^="mango-tab"]').forEach(content => content.classList.remove('active'));
+            
+            // Activar la pestaña seleccionada y su contenido
+            tab.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        });
+    });
+    
+    // Funcionalidad para el selector de región de mango
+    document.getElementById('mango-region-select').addEventListener('change', function() {
+        const selectedRegion = this.value;
+        alert(`Mostrando huertas de mango en la región: ${selectedRegion.charAt(0).toUpperCase() + selectedRegion.slice(1)}`);
+        // Aquí iría la lógica para filtrar las huertas por región
+    });
+    
+    // Funcionalidad para los botones de ver detalles
+    document.querySelectorAll('.view-details').forEach(button => {
+        button.addEventListener('click', function() {
+            const orchardName = this.parentElement.querySelector('h4').textContent;
+            alert(`Mostrando detalles completos de la huerta: ${orchardName}`);
+            // Aquí iría la lógica para mostrar detalles completos
+        });
+    });
+    
+    // Funcionalidad para cargar más huertas
+    document.getElementById('load-more-orchards').addEventListener('click', function() {
+        alert('Cargando más huertas disponibles...');
+        // Aquí iría la lógica para cargar más huertas
+    });
+    
+    // Funcionalidad para navegación del calendario de mango
+    document.getElementById('prev-month-mango').addEventListener('click', () => {
+        document.getElementById('current-month-mango').textContent = 'Marzo 2025';
+        alert('Cambiando al mes anterior (simulado)');
+    });
+    
+    document.getElementById('next-month-mango').addEventListener('click', () => {
+        document.getElementById('current-month-mango').textContent = 'Mayo 2025';
+        alert('Cambiando al mes siguiente (simulado)');
+    });
+    
+    // Funcionalidad para contactar sobre rentas
+    document.getElementById('contact-about-rentals').addEventListener('click', function() {
+        alert('Redirigiendo al formulario de contacto para información sobre rentas de huertas de mango');
+        // Aquí iría la lógica para redireccionar o mostrar un formulario
+    });
+    
+    // Funcionalidad para la búsqueda de huertas de mango
+    document.getElementById('search-mango-button').addEventListener('click', () => {
+        const searchText = document.querySelector('.search-bar input').value;
+        if(searchText.trim() !== '') {
+            alert(`Buscando huertas de mango: "${searchText}"`);
+            // Aquí iría la lógica real de búsqueda
+        } else {
+            alert('Por favor ingrese un término de búsqueda');
+        }
+    });
+</script>

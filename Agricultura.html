@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agricultura del CBTA 140</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        color: #333;
+    }
+
+    header {
+        background-color: #4CAF50;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    header img {
+        max-width: 100px;
+    }
+
+    /* Menú de navegación mejorado para móviles */
+    nav {
+        background-color: #333;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    }
+
+    nav ul li {
+        margin: 0;
+        width: 100%; /* En móviles, cada elemento ocupa todo el ancho */
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        padding: 15px 10px; /* Botones más grandes para facilitar el toque */
+        border-radius: 0;
+        display: block; /* Cada enlace ocupa todo el ancho disponible */
+        text-align: center;
+    }
+
+    nav ul li a.active, nav ul li a:hover {
+        background-color: #575757;
+    }
+
+    main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+    .content {
+        width: 100%; /* En móviles, el contenido ocupa todo el ancho */
+        margin-bottom: 20px;
+    }
+
+    .sidebar {
+        width: 100%; /* En móviles, la barra lateral ocupa todo el ancho */
+    }
+
+    .card {
+        background-color: white;
+        padding: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+    }
+
+    .card h3 {
+        margin-top: 0;
+        color: #4CAF50;
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    ul li {
+        margin: 5px 0;
+    }
+
+    button {
+        padding: 12px 16px; /* Botones más grandes para facilitar el toque */
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px; /* Texto más grande para facilitar la lectura */
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    .tab-content {
+        display: none;
+    }
+
+    .tab-content.active {
+        display: block;
+    }
+
+    /* Calendario mejorado para móviles */
+    .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-gap: 2px;
+        margin-top: 8px;
+        font-size: 14px; /* Texto más grande para facilitar la lectura */
+    }
+
+    .calendar-day {
+        text-align: center;
+        padding: 8px; /* Celdas más grandes para facilitar el toque */
+        background-color: #f4f4f4;
+        border-radius: 3px;
+        min-height: 20px; /* Altura mínima mayor */
+        line-height: 20px;
+        overflow: hidden;
+    }
+
+    .calendar-day.active {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .calendar-day.important {
+        background-color: #ffcccc;
+        color: #b30000;
+        font-weight: bold;
+    }
+
+    .weather-forecast {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .weather-day {
+        text-align: center;
+    }
+    
+    .calendar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+        font-size: 16px; /* Texto más grande para facilitar la lectura */
+    }
+    
+    #current-month {
+        font-weight: bold;
+    }
+    
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        margin-top: 20px;
+    }
+    
+    .footer-links {
+        margin-bottom: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .footer-links a {
+        color: white;
+        margin: 5px 10px;
+        text-decoration: none;
+        padding: 5px; /* Enlaces más grandes para facilitar el toque */
+    }
+    
+    .footer-links a:hover {
+        text-decoration: underline;
+    }
+
+    /* Hamburger menu para móviles */
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Media queries mejorados */
+    @media (min-width: 769px) {
+        /* Estilos para pantallas más grandes */
+        .content {
+            width: 70%;
+        }
+
+        .sidebar {
+            width: 25%;
+        }
+
+        nav ul li {
+            width: auto;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        nav ul {
+            display: flex !important; /* Asegúrate de que el menú siempre esté visible en pantallas grandes */
+        }
+    }
+
+    @media (max-width: 768px) {
+        /* Estilos para móviles */
+        .menu-toggle {
+            display: block;
+        }
+
+        nav ul {
+            display: none; /* Menú oculto por defecto en móviles */
+            flex-direction: column;
+        }
+
+        nav ul.show {
+            display: flex; /* Menú mostrado cuando tiene la clase 'show' */
+        }
+
+        .calendar-day {
+            font-size: 12px;
+            padding: 5px;
+        }
+
+        header {
+            padding: 10px;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        h3 {
+            font-size: 18px;
+        }
+    }
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">Agricultura del CBTA 140</div>
+    <p>Su fuente de información agrícola confiable</p>
+    <img src="imagenes/LOGO CBTA.jpg" alt="Logo de CBTA 140" />
+  </header>
+
+  <nav>
+    <button class="menu-toggle" id="menu-toggle">☰ Menú</button>
+    <ul id="main-menu">
+      <li><a href="#" class="nav-tab active" data-tab="inicio">Inicio</a></li>
+      <li><a href="#" class="nav-tab" data-tab="Cultivos">Cultivos</a></li>
+      <li><a href="#" class="nav-tab" data-tab="Precio mercado">Precio mercado</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="content">
+ 
+      <div id="inicio" class="tab-content active">
+        <h1>Bienvenido al Portal de Agricultura del CBTA N°140</h1>
+        <div class="card">
+          <h3>Información Destacada</h3>
+          <p>
+            Bienvenido a su portal especializado en agricultura. Aquí encontrará información actualizada sobre cultivos,
+            técnicas agrícolas sostenibles y previsiones meteorológicas para optimizar sus actividades.
+          </p>
+          <p>Características principales:</p>
+          <ul>
+            <li>Calendario agrícola interactivo</li>
+            <li>Información detallada sobre cultivos regionales</li>
+            <li>Previsiones meteorológicas para planificación agrícola</li>
+            <li>Consejos de expertos para maximizar sus cosechas</li>
+          </ul>
+        </div>
+      </div>
+
+ 
+      <div id="Cultivos" class="tab-content">
+        <h1>Cultivos</h1>
+        <div class="card"><h3>Jitomate</h3><p>Época ideal de siembra: Primavera</p><p>Tiempo hasta cosecha: 90-120 días</p><p>Necesidades de riego: Moderadas</p><p>El Jitomate es uno de los cultivos más importantes a nivel mundial. Prospera en climas cálidos y requiere un suelo rico en nitrógeno para un crecimiento óptimo.</p></div>
+        <div class="card"><h3>Melón</h3><p>Época ideal de siembra: Diciembre y febrero</p><p>Tiempo hasta cosecha: 90-120 días</p><p>Necesidades de riego: Moderadas</p><p>El Melón es uno de los cultivos más importantes a nivel mundial. Prospera en climas cálidos y requiere un suelo rico en nitrógeno para un crecimiento óptimo.</p></div>
+        <div class="card"><h3>Maíz</h3><p>Época ideal de siembra: Primavera - verano</p><p>Tiempo hasta cosecha: 90-120 días</p><p>Necesidades de riego: Moderadas</p><p>El Maíz es uno de los cultivos más importantes a nivel mundial. Prospera en climas cálidos y requiere un suelo rico en nitrógeno para un crecimiento óptimo.</p></div>
+        <div class="card"><h3>Mango</h3><p>Época ideal de siembra: verano u otoño</p><p>Tiempo hasta cosecha: 90-120 días</p><p>Necesidades de riego: Moderadas</p><p>El Mango es uno de los cultivos más importantes a nivel mundial. Prospera en climas cálidos y requiere un suelo rico en nitrógeno para un crecimiento óptimo.</p></div>
+      </div>
+
+
+      <div id="Precio mercado" class="tab-content">
+        <h1>Precio mercado</h1>
+        <div class="card">
+          <h3>Precios del Mercado</h3>
+          <ul id="market-prices">
+            <li>Jitomate: $10-$15/Kilo</li>
+            <li>Melón: $14-$18/Kilo</li>
+            <li>Maíz Criollo o tampiqueño: $50 Prox/Docena</li>
+            <li>Mango: Renta de Huerta</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="card">
+        <h3>Calendario Agrícola</h3>
+        <div class="calendar">
+          <div class="calendar-header">
+            <button id="prev-month">←</button>
+            <div id="current-month">Abril 2025</div>
+            <button id="next-month">→</button>
+          </div>
+          <div class="calendar-grid"></div>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <h3>Enlaces Útiles</h3>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="Agricultura.html">Agricultura (Estás aquí)</a></li>
+          <li><a href="ganaderia.html">Ganadería</a></li>
+          <li><a href="RentaDeMangos.html">Renta de huertas</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="http://www.CBTA140.com/">Más del CBTA 140</a>
+      <a href="http://www.cbta140.com/programs.html">Carreras</a>
+      <a href="contactos.html">Contactos</a>
+    </div>
+    <p>&copy; 2025. Todos los derechos reservados al CBTA Nº140.</p>
+  </footer>
+
+  <script>
+    // Esperar a que el DOM esté completamente cargado
+    document.addEventListener('DOMContentLoaded', function() {
+        // Manejar el menú hamburguesa para móviles
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('main-menu').classList.toggle('show');
+        });
+
+        // Cerrar el menú después de hacer clic en un enlace (en móviles)
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    document.getElementById('main-menu').classList.remove('show');
+                }
+            });
+        });
+
+        // Manejar las pestañas de navegación
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                tab.classList.add('active');
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Configuración del calendario
+        const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+        let currentDate = new Date();
+
+        const fechasImportantes = {
+            "3-15": true, // 15 Abril - jitomate siembra
+            "4-10": true, // 10 Mayo - melón siembra
+            "4-25": true, // 25 Mayo - maíz siembra
+            "6-15": true, // 15 Julio - melón cosecha
+            "7-10": true, // 10 Agosto - jitomate cosecha
+            "8-5": true   // 5 Septiembre - maíz cosecha
+        };
+
+        function updateCalendar() {
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+
+            document.getElementById('current-month').textContent = `${months[month]} ${year}`;
+            const calendarGrid = document.querySelector('.calendar-grid');
+            calendarGrid.innerHTML = '';
+
+            const dayLabels = ['D', 'L', 'M', 'X', 'J', 'V', 'S'];
+            dayLabels.forEach(day => {
+                const dayLabel = document.createElement('div');
+                dayLabel.className = 'calendar-day';
+                dayLabel.style.fontWeight = 'bold';
+                dayLabel.textContent = day;
+                calendarGrid.appendChild(dayLabel);
+            });
+
+            const firstDay = new Date(year, month, 1).getDay();
+            for (let i = 0; i < firstDay; i++) {
+                const empty = document.createElement('div');
+                empty.className = 'calendar-day';
+                calendarGrid.appendChild(empty);
+            }
+
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            for (let i = 1; i <= daysInMonth; i++) {
+                const day = document.createElement('div');
+                day.className = 'calendar-day';
+                day.textContent = i;
+
+                const key = `${month}-${i}`;
+                if (fechasImportantes[key]) {
+                    day.classList.add('important');
+                }
+
+                const today = new Date();
+                if (year === today.getFullYear() && month === today.getMonth() && i === today.getDate()) {
+                    day.classList.add('active');
+                }
+
+                calendarGrid.appendChild(day);
+            }
+        }
+
+        // Inicializar el calendario
+        updateCalendar();
+
+        // Agregar eventos a los botones de navegación del calendario
+        document.getElementById('prev-month').addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            updateCalendar();
+        });
+
+        document.getElementById('next-month').addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            updateCalendar();
+        });
+
+        // Comprobar el tamaño de la pantalla al cargar y al cambiar el tamaño
+        function checkScreenSize() {
+            const menu = document.getElementById('main-menu');
+            if (window.innerWidth > 768) {
+                menu.classList.remove('show');
+                menu.style.display = 'flex';
+            } else {
+                menu.style.display = '';
+            }
+        }
+
+        // Verificar al cargar
+        checkScreenSize();
+
+        // Verificar cuando se redimensiona la ventana
+        window.addEventListener('resize', checkScreenSize);
+    });
+</script>
+</body>
+</html>
