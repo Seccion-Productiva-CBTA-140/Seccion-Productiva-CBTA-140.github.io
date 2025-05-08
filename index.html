@@ -109,8 +109,8 @@
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="Agricultura.html">Agricultura</a></li>
-                    <li><a href="ganaderia.html">Ganaderia (en proceso)</a></li>
-                    <li><a href="RentaDeHuertas.html">Renta de Huertas (estas aqui)</a></li>
+                    <li><a href="404.html">Ganaderia (en proceso)</a></li>
+                    <li><a href="huertas.html">Renta de Huertas</a></li>
                 </ul>
             </div>
             
@@ -124,16 +124,15 @@
     
     <footer>
         <div class="footer-links">
-            <a href="nosotros.html">Sobre nosotros</a>
-            <a href="#">Términos de uso</a>
-            <a href="#">Política de privacidad</a>
-            <a href="contacto.html">Contacto</a>
+            <a href="http://www.CBTA140.com/">Más del CBTA 140</a>
+            <a href="http://www.cbta140.com/programs.html">Carreras</a>
+            <a href="contactos.html">Contactos</a>
         </div>
-        <p>&copy; 2025 Portal Informativo. Todos los derechos reservados.</p>
+        <p>&copy; 2025. Todos los derechos reservados al CBTA Nº140.</p>
     </footer>
     
     <script>
-        // Funcionalidad para las pestañas
+        
         document.querySelectorAll('.tab').forEach(tab => {
             tab.addEventListener('click', () => {
                 const tabId = tab.getAttribute('data-tab');
@@ -144,7 +143,7 @@
             });
         });
 
-        // Buscar
+      
         document.getElementById('search-button').addEventListener('click', () => {
             const searchText = document.querySelector('.search-bar input').value;
             if (searchText.trim() !== '') {
@@ -154,7 +153,7 @@
             }
         });
 
-        // Cargar más documentos
+       
         document.getElementById('load-more-docs').addEventListener('click', () => {
             const list = document.getElementById('document-list');
             const newItems = [
@@ -176,7 +175,7 @@
             document.getElementById('load-more-docs').disabled = true;
         });
 
-        // Verificar notificaciones
+        
         document.getElementById('check-notifications').addEventListener('click', () => {
             const notifArea = document.getElementById('notification-area');
             const p = notifArea.querySelector('p');
@@ -187,12 +186,12 @@
             document.getElementById('check-notifications').textContent = 'Marcar como leídas';
         });
 
-        // Más información
+        
         document.getElementById('more-info').addEventListener('click', () => {
             alert('Esta sección proporciona información detallada sobre el portal y sus características.');
         });
 
-        // Actualizar estadísticas
+        
         document.getElementById('update-stats').addEventListener('click', () => {
             const chart = document.getElementById('chart');
             chart.innerHTML = '<p>Gráfico Actualizado (Simulado)</p>';
