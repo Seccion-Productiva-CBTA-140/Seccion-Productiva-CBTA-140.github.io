@@ -24,7 +24,7 @@
         max-width: 100px;
     }
 
-    /* Menú de navegación mejorado para móviles */
+
     nav {
         background-color: #333;
     }
@@ -35,20 +35,20 @@
         list-style: none;
         margin: 0;
         padding: 0;
-        flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+        flex-wrap: wrap; 
     }
 
     nav ul li {
         margin: 0;
-        width: 100%; /* En móviles, cada elemento ocupa todo el ancho */
+        width: 100%; 
     }
 
     nav ul li a {
         color: white;
         text-decoration: none;
-        padding: 15px 10px; /* Botones más grandes para facilitar el toque */
+        padding: 15px 10px; 
         border-radius: 0;
-        display: block; /* Cada enlace ocupa todo el ancho disponible */
+        display: block; 
         text-align: center;
     }
 
@@ -64,12 +64,12 @@
     }
 
     .content {
-        width: 100%; /* En móviles, el contenido ocupa todo el ancho */
+        width: 100%; 
         margin-bottom: 20px;
     }
 
     .sidebar {
-        width: 100%; /* En móviles, la barra lateral ocupa todo el ancho */
+        width: 100%; 
     }
 
     .card {
@@ -95,13 +95,13 @@
     }
 
     button {
-        padding: 12px 16px; /* Botones más grandes para facilitar el toque */
+        padding: 12px 16px; 
         background-color: #4CAF50;
         color: white;
         border: none;
         cursor: pointer;
         border-radius: 5px;
-        font-size: 16px; /* Texto más grande para facilitar la lectura */
+        font-size: 16px; 
     }
 
     button:hover {
@@ -116,21 +116,21 @@
         display: block;
     }
 
-    /* Calendario mejorado para móviles */
+    
     .calendar-grid {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
         grid-gap: 2px;
         margin-top: 8px;
-        font-size: 14px; /* Texto más grande para facilitar la lectura */
+        font-size: 14px; 
     }
 
     .calendar-day {
         text-align: center;
-        padding: 8px; /* Celdas más grandes para facilitar el toque */
+        padding: 8px; 
         background-color: #f4f4f4;
         border-radius: 3px;
-        min-height: 20px; /* Altura mínima mayor */
+        min-height: 20px; 
         line-height: 20px;
         overflow: hidden;
     }
@@ -160,7 +160,7 @@
         justify-content: space-between;
         align-items: center;
         margin-bottom: 8px;
-        font-size: 16px; /* Texto más grande para facilitar la lectura */
+        font-size: 16px; 
     }
     
     #current-month {
@@ -186,14 +186,14 @@
         color: white;
         margin: 5px 10px;
         text-decoration: none;
-        padding: 5px; /* Enlaces más grandes para facilitar el toque */
+        padding: 5px; 
     }
     
     .footer-links a:hover {
         text-decoration: underline;
     }
 
-    /* Hamburger menu para móviles */
+
     .menu-toggle {
         display: none;
         background: none;
@@ -206,9 +206,9 @@
         text-align: center;
     }
 
-    /* Media queries mejorados */
+   
     @media (min-width: 769px) {
-        /* Estilos para pantallas más grandes */
+     
         .content {
             width: 70%;
         }
@@ -232,23 +232,23 @@
         }
 
         nav ul {
-            display: flex !important; /* Asegúrate de que el menú siempre esté visible en pantallas grandes */
+            display: flex !important; 
         }
     }
 
     @media (max-width: 768px) {
-        /* Estilos para móviles */
+        
         .menu-toggle {
             display: block;
         }
 
         nav ul {
-            display: none; /* Menú oculto por defecto en móviles */
+            display: none; 
             flex-direction: column;
         }
 
         nav ul.show {
-            display: flex; /* Menú mostrado cuando tiene la clase 'show' */
+            display: flex; 
         }
 
         .calendar-day {
@@ -294,26 +294,19 @@
         <div class="card">
           <h3>Información Destacada</h3>
           <p>
-            Bienvenido a su portal especializado en agricultura. Aquí encontrará información actualizada sobre cultivos,
-            técnicas agrícolas sostenibles y previsiones meteorológicas para optimizar sus actividades.
+En este pagina solamente se centra en la zona de la agricultura.</p>
+<p>se enseñara el precio del mercado, tiempo que tardan en producir, su epoca/mes ideal.
           </p>
-          <p>Características principales:</p>
-          <ul>
-            <li>Calendario agrícola interactivo</li>
-            <li>Información detallada sobre cultivos regionales</li>
-            <li>Previsiones meteorológicas para planificación agrícola</li>
-            <li>Consejos de expertos para maximizar sus cosechas</li>
-          </ul>
         </div>
       </div>
 
  
       <div id="Cultivos" class="tab-content">
         <h1>Cultivos</h1>
-        <div class="card"><h3>Jitomate</h3><p>Época ideal de siembra: Primavera</p><p>Tiempo hasta cosecha: 90-120 días</p><p>Necesidades de riego: Moderadas</p><p>El Jitomate es uno de los cultivos más importantes a nivel mundial. Prospera en climas cálidos y requiere un suelo rico en nitrógeno para un crecimiento óptimo.</p></div>
-        <div class="card"><h3>Melón</h3><p>Época ideal de siembra: Diciembre y febrero</p><p>Tiempo hasta cosecha: 90-120 días</p><p>Necesidades de riego: Moderadas</p><p>El Melón es uno de los cultivos más importantes a nivel mundial. Prospera en climas cálidos y requiere un suelo rico en nitrógeno para un crecimiento óptimo.</p></div>
-        <div class="card"><h3>Maíz</h3><p>Época ideal de siembra: Primavera - verano</p><p>Tiempo hasta cosecha: 90-120 días</p><p>Necesidades de riego: Moderadas</p><p>El Maíz es uno de los cultivos más importantes a nivel mundial. Prospera en climas cálidos y requiere un suelo rico en nitrógeno para un crecimiento óptimo.</p></div>
-        <div class="card"><h3>Mango</h3><p>Época ideal de siembra: verano u otoño</p><p>Tiempo hasta cosecha: 90-120 días</p><p>Necesidades de riego: Moderadas</p><p>El Mango es uno de los cultivos más importantes a nivel mundial. Prospera en climas cálidos y requiere un suelo rico en nitrógeno para un crecimiento óptimo.</p></div>
+        <div class="card"><h3>Jitomate</h3><p>Época ideal de siembra: enero para que de en abril.</p><p>Tiempo hasta cosecha: 3 Meses</p><p>Necesidades de riego: controlada.</p></div>
+        <div class="card"><h3>Melón</h3><p>Época ideal de siembra: octubre (invierno).</p><p>Tiempo hasta cosecha: 3 Meses días</p><p>Necesidades de riego: controlada.</p></div>
+        <div class="card"><h3>Maíz</h3><p>Época ideal de siembra: junio - julio.</p><p>Tiempo hasta cosecha: 73-76 días</p><p>Necesidades de riego: controlada.</p></div>
+        <div class="card"><h3>Mango</h3><p>Época ideal de siembra: Julio.</p><p>Tiempo hasta cosecha: 3 años</p><p>Necesidades de riego: controlada.</p></div>
       </div>
 
 
@@ -325,7 +318,7 @@
             <li>Jitomate: $10-$15/Kilo</li>
             <li>Melón: $14-$18/Kilo</li>
             <li>Maíz Criollo o tampiqueño: $50 Prox/Docena</li>
-            <li>Mango: Renta de Huerta</li>
+            <li>Mango: Renta de Huerta por año</li>
           </ul>
         </div>
       </div>
@@ -350,8 +343,8 @@
         <ul>
           <li><a href="index.html">Inicio</a></li>
           <li><a href="Agricultura.html">Agricultura (Estás aquí)</a></li>
-          <li><a href="ganaderia.html">Ganadería</a></li>
-          <li><a href="RentaDeMangos.html">Renta de huertas</a></li>
+          <li><a href="ganaderia.html">Ganadería (En proceso)</a></li>
+          <li><a href="huertas.html">Renta de huertas</a></li>
         </ul>
       </div>
     </div>
@@ -367,14 +360,14 @@
   </footer>
 
   <script>
-    // Esperar a que el DOM esté completamente cargado
+
     document.addEventListener('DOMContentLoaded', function() {
-        // Manejar el menú hamburguesa para móviles
+
         document.getElementById('menu-toggle').addEventListener('click', function() {
             document.getElementById('main-menu').classList.toggle('show');
         });
 
-        // Cerrar el menú después de hacer clic en un enlace (en móviles)
+
         document.querySelectorAll('.nav-tab').forEach(tab => {
             tab.addEventListener('click', () => {
                 if (window.innerWidth <= 768) {
@@ -383,7 +376,7 @@
             });
         });
 
-        // Manejar las pestañas de navegación
+        
         document.querySelectorAll('.nav-tab').forEach(tab => {
             tab.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -395,7 +388,7 @@
             });
         });
 
-        // Configuración del calendario
+
         const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
         let currentDate = new Date();
 
@@ -452,10 +445,10 @@
             }
         }
 
-        // Inicializar el calendario
+       
         updateCalendar();
 
-        // Agregar eventos a los botones de navegación del calendario
+   
         document.getElementById('prev-month').addEventListener('click', () => {
             currentDate.setMonth(currentDate.getMonth() - 1);
             updateCalendar();
@@ -466,7 +459,7 @@
             updateCalendar();
         });
 
-        // Comprobar el tamaño de la pantalla al cargar y al cambiar el tamaño
+ 
         function checkScreenSize() {
             const menu = document.getElementById('main-menu');
             if (window.innerWidth > 768) {
@@ -477,10 +470,10 @@
             }
         }
 
-        // Verificar al cargar
+        
         checkScreenSize();
 
-        // Verificar cuando se redimensiona la ventana
+        
         window.addEventListener('resize', checkScreenSize);
     });
 </script>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sector Productivo - CBTA 140</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="imagenes/LOGO_CBTA.png" alt="Logo del portal" width="80" height="auto">
+        <div class="logo">CBTA 140</div>
+        <p>Su fuente confiable de información</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="sector_productivo.html">Area del sector productivo</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="content">
+            <h1>Sector Productivo Agrícola y Pecuario</h1>
+
+            <div class="card">
+                <h3>Importancia del Sector Productivo</h3>
+                <p>El sector agrícola y pecuario constituye la base económica de muchas comunidades rurales, incluida la nuestra. La producción de alimentos, materias primas y bienes de consumo es esencial para la seguridad alimentaria, la economía regional y la generación de empleo.</p>
+            </div>
+
+            <div class="card">
+                <h3>Producción Agrícola</h3>
+                <p>Nuestro entorno agrícola se especializa en cultivos de alto valor como:</p>
+                <ul>
+                    <li><strong>Melón:</strong> Cultivado por su alta demanda y exportación.</li><br>
+                    <img>
+                    <li><strong>Maíz:</strong> Base de la alimentación nacional y forraje para animales.</li>
+                    <li><strong>Mango:</strong> Producto tropical de gran valor comercial.</li>
+                    <li><strong>Jitomate:</strong> Cultivo hortícola esencial para consumo y mercado.</li>
+                </ul>
+                <p>Conoce más en <a href="https://www.gob.mx/agricultura" target="_blank">Sitio oficial de Agricultura</a>.</p>
+            </div>
+
+            <div class="card">
+                <h3>Producción Pecuaria</h3>
+                <p>La actividad pecuaria se enfoca en:</p>
+                <ul>
+                    <li><strong>Vacas:</strong> Producción de carne y leche para el abasto local y comercial.</li>
+                    <li><strong>Borregos:</strong> Criados por su carne y adaptabilidad al medio rural.</li>
+                </ul>
+                <p>Más información en <a href="https://www.gob.mx/senasica" target="_blank">SENASICA - Salud Animal</a>.</p>
+            </div>
+
+            <div class="card">
+                <h3>Desarrollo Sustentable</h3>
+                <p>El CBTA 140 promueve el uso responsable de los recursos naturales, el manejo integrado de plagas y la rotación de cultivos, fomentando una agricultura amigable con el medio ambiente.</p>
+                <p>Consulta prácticas sustentables en <a href="https://www.fao.org/sustainability/es/" target="_blank">FAO - Agricultura Sostenible</a>.</p>
+            </div>
+
+            <div class="card">
+                <h3>Formación Técnica</h3>
+                <p>El programa educativo del CBTA 140 prepara a los estudiantes para integrarse eficazmente al sector productivo, combinando teoría con prácticas de campo, y fomentando el emprendimiento rural.</p>
+                <p>Más sobre educación técnica agropecuaria en <a href="https://educacionmedia.sep.gob.mx" target="_blank">Educación Media Superior - SEP</a>.</p>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <h2>Información Adicional para su interes</h2>
+            <div class="card">
+                <h3>Enlaces de interes</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="Agricultura.html">Agricultura</a></li>
+                    <li><a href="ganaderia.html">Ganaderia (en proceso)</a></li>
+                    <li><a href="RentaDeHuertas.html">Renta de Huertas (estas aqui)</a></li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Enlaces de Información en la web</h3>
+                <ul>
+                    <li><a href="https://www.gob.mx/agricultura" target="_blank">Secretaría de Agricultura</a></li>
+                    <li><a href="https://www.gob.mx/senasica" target="_blank">SENASICA</a></li>
+                    <li><a href="https://www.fao.org" target="_blank">Organización FAO</a></li>
+                    <li><a href="https://educacionmedia.sep.gob.mx" target="_blank">SEP - EMS</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="nosotros.html">Sobre nosotros</a>
+            <a href="#">Términos de uso</a>
+            <a href="#">Política de privacidad</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+        <p>&copy; 2025 CBTA 140. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById('check-notifications').addEventListener('click', () => {
+            const notifArea = document.getElementById('notification-area');
+            const p = notifArea.querySelector('p');
+            p.innerHTML = '¡Tiene 2 nuevas notificaciones!<br><br>' +
+                          '• Nuevo recurso publicado<br>' +
+                          '• Evento programado en el campo de prácticas';
+            document.getElementById('check-notifications').textContent = 'Marcar como leídas';
+        });
+    </script>
+</body>
+</html>

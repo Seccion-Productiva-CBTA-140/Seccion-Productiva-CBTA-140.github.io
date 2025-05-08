@@ -14,7 +14,7 @@
     }
 
     header {
-        background-color: #3f51b5;
+        background-color: #4CAF50;
         color: white;
         padding: 20px;
         text-align: center;
@@ -24,24 +24,32 @@
         max-width: 100px;
     }
 
+
+    nav {
+        background-color: #333;
+    }
+
     nav ul {
         display: flex;
         justify-content: center;
         list-style: none;
-        background-color: #333;
         margin: 0;
-        padding: 10px 0;
+        padding: 0;
+        flex-wrap: wrap; 
     }
 
     nav ul li {
-        margin: 0 15px;
+        margin: 0;
+        width: 100%; 
     }
 
     nav ul li a {
         color: white;
         text-decoration: none;
-        padding: 5px 10px;
-        border-radius: 5px;
+        padding: 15px 10px; 
+        border-radius: 0;
+        display: block; 
+        text-align: center;
     }
 
     nav ul li a.active, nav ul li a:hover {
@@ -50,16 +58,18 @@
 
     main {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         padding: 20px;
     }
 
     .content {
-        width: 70%;
+        width: 100%; 
+        margin-bottom: 20px;
     }
 
     .sidebar {
-        width: 25%;
+        width: 100%; 
     }
 
     .card {
@@ -67,10 +77,12 @@
         padding: 15px;
         margin-bottom: 20px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
     }
 
     .card h3 {
         margin-top: 0;
+        color: #4CAF50;
     }
 
     ul {
@@ -83,15 +95,17 @@
     }
 
     button {
-        padding: 10px 15px;
-        background-color: #3f51b5;
+        padding: 12px 16px; 
+        background-color: #4CAF50;
         color: white;
         border: none;
         cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
     }
 
     button:hover {
-        background-color: #303f9f;
+        background-color: #45a049;
     }
 
     .tab-content {
@@ -102,28 +116,33 @@
         display: block;
     }
 
+
     .calendar-grid {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
-        grid-gap: 5px;
-        margin-top: 10px;
+        grid-gap: 2px;
+        margin-top: 8px;
+        font-size: 14px; 
     }
 
     .calendar-day {
         text-align: center;
-        padding: 10px;
+        padding: 8px; 
         background-color: #f4f4f4;
-        border-radius: 5px;
+        border-radius: 3px;
+        min-height: 20px; 
+        line-height: 20px;
+        overflow: hidden;
     }
 
     .calendar-day.active {
-        background-color: #3f51b5;
+        background-color: #4CAF50;
         color: white;
     }
 
     .calendar-day.important {
-        background-color: #e8eaf6;
-        color: #3f51b5;
+        background-color: #ffcccc;
+        color: #b30000;
         font-weight: bold;
     }
 
@@ -134,6 +153,120 @@
 
     .weather-day {
         text-align: center;
+    }
+    
+    .calendar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+        font-size: 16px; 
+    }
+    
+    #current-month {
+        font-weight: bold;
+    }
+    
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        margin-top: 20px;
+    }
+    
+    .footer-links {
+        margin-bottom: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .footer-links a {
+        color: white;
+        margin: 5px 10px;
+        text-decoration: none;
+        padding: 5px; 
+    }
+    
+    .footer-links a:hover {
+        text-decoration: underline;
+    }
+
+    
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+    }
+
+
+    @media (min-width: 769px) {
+     
+        .content {
+            width: 70%;
+        }
+
+        .sidebar {
+            width: 25%;
+        }
+
+        nav ul li {
+            width: auto;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        nav ul {
+            display: flex !important; 
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        .menu-toggle {
+            display: block;
+        }
+
+        nav ul {
+            display: none; 
+            flex-direction: column;
+        }
+
+        nav ul.show {
+            display: flex; 
+        }
+
+        .calendar-day {
+            font-size: 12px;
+            padding: 5px;
+        }
+
+        header {
+            padding: 10px;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        h3 {
+            font-size: 18px;
+        }
     }
 </style>
 </head>
@@ -203,20 +336,6 @@
       </div>
     </div>
 
-    <div class="sidebar">
-      <div class="card">
-        <h3>Calendario Ganadero</h3>
-        <div class="calendar">
-          <div class="calendar-header">
-            <button id="prev-month">←</button>
-            <div id="current-month">Abril 2025</div>
-            <button id="next-month">→</button>
-          </div>
-          <div class="calendar-grid"></div>
-        </div>
-      </div>
-
-
       <div class="card">
         <h3>Enlaces Útiles</h3>
         <ul>
@@ -246,11 +365,11 @@
         tab.addEventListener("click", function (e) {
           e.preventDefault();
   
-          // Quitar clase 'active' a todos los tabs y contenidos
+    
           tabs.forEach(t => t.classList.remove("active"));
           contents.forEach(c => c.classList.remove("active"));
   
-          // Activar el tab y contenido correspondiente
+          
           this.classList.add("active");
           const selectedTab = this.getAttribute("data-tab");
           document.getElementById(selectedTab).classList.add("active");

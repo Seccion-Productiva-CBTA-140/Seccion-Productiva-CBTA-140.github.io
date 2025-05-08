@@ -3,237 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Informativo</title>
-    <style>
-        :root {
-            --primary-color: #003366;
-            --secondary-color: #f8f9fa;
-            --accent-color: #0056b3;
-            --text-color: #333;
-            --border-color: #dee2e6;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--text-color);
-            background-color: var(--secondary-color);
-        }
-        
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
-        nav {
-            background-color: #002855;
-            padding: 10px 0;
-        }
-        
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        
-        nav li {
-            margin: 0 15px;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 5px 10px;
-            border-radius: 3px;
-            transition: background-color 0.3s;
-        }
-        
-        nav a:hover {
-            background-color: rgba(255,255,255,0.1);
-        }
-        
-        main {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 20px;
-            display: flex;
-            flex-wrap: wrap;
-        }
-        
-        .content {
-            flex: 2;
-            min-width: 300px;
-            padding: 20px;
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        
-        .sidebar {
-            flex: 1;
-            min-width: 250px;
-            margin-left: 20px;
-            padding: 20px;
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        
-        h1, h2, h3 {
-            color: var(--primary-color);
-        }
-        
-        .card {
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
-            padding: 15px;
-            margin-bottom: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .card h3 {
-            margin-top: 0;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
-        }
-        
-        button, .button {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-        
-        button:hover, .button:hover {
-            background-color: var(--accent-color);
-        }
-        
-        .search-bar {
-            display: flex;
-            margin-bottom: 20px;
-        }
-        
-        .search-bar input {
-            flex: 1;
-            padding: 8px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px 0 0 4px;
-        }
-        
-        .search-bar button {
-            border-radius: 0 4px 4px 0;
-        }
-        
-        .tabs {
-            display: flex;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 20px;
-        }
-        
-        .tab {
-            padding: 10px 20px;
-            cursor: pointer;
-            background-color: transparent;
-            border: none;
-            border-bottom: 3px solid transparent;
-            font-weight: 500;
-        }
-        
-        .tab.active {
-            border-bottom-color: var(--primary-color);
-            color: var(--primary-color);
-        }
-        
-        .tab-content {
-            display: none;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 15px;
-        }
-        
-        .footer-links a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-        }
-        
-        @media (max-width: 768px) {
-            main {
-                flex-direction: column;
-            }
-            
-            .sidebar {
-                margin-left: 0;
-                margin-top: 20px;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            nav li {
-                margin: 5px 0;
-            }
-        }
-    </style>
+    <title>CBTA 140</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <div class="logo">InfoPortal</div>
+        <img src="imagenes/LOGO_CBTA.png" alt="Logo del portal" width="80" height="auto">
+        <div class="logo">CBTA 140</div>
         <p>Su fuente confiable de información</p>
     </header>
     
     <nav>
         <ul>
-            <li><a href="#" class="active">Inicio</a></li>
-            <li><a href="#">Noticias</a></li>
-            <li><a href="#">Documentos</a></li>
-            <li><a href="#">Recursos</a></li>
-            <li><a href="#">Contacto</a></li>
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="sector_productivo.html">Area del sector productivo</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
         </ul>
     </nav>
     
     <main>
         <div class="content">
-            <h1>Bienvenido al Portal Informativo</h1>
+            <h1>Bienvenido al Portal Informativo del área de Producción Agrícola y Pecuaria</h1>
+
+            <p>
+                En el CBTA 140, nos enorgullece formar parte de una región con una sólida vocación agrícola y pecuaria. Nuestro portal está diseñado para brindar información actualizada y útil sobre las actividades productivas que impulsan el desarrollo económico y social de nuestra comunidad.
+            </p>
+
+            <p>
+                En el sector agrícola, destacamos la producción de cultivos como <strong>melón</strong>, <strong>maíz</strong>, <strong>mango</strong> y <strong>jitomate</strong>, los cuales representan una fuente importante de empleo, comercio y exportación. Por su parte, el sector pecuario se enfoca en la crianza de <strong>vacas</strong> y <strong>borregos</strong>, fortaleciendo la seguridad alimentaria y fomentando prácticas de manejo animal responsables y sostenibles.
+            </p>
+
+            <p>
+                Este sitio busca facilitar el acceso a recursos, documentos técnicos y datos estadísticos que apoyen tanto a estudiantes como a productores y docentes en su proceso de formación y mejora continua.
+            </p>
             
             <div class="search-bar">
                 <input type="text" placeholder="Buscar información...">
@@ -249,13 +51,14 @@
             <div id="tab1" class="tab-content active">
                 <div class="card">
                     <h3>Información Destacada</h3>
-                    <p>Este es un prototipo de portal informativo diseñado para presentar datos de manera formal e interactiva. El diseño se enfoca en la usabilidad y la presentación clara de la información.</p>
-                    <p>Características principales:</p>
+                    <p>El área de Producción Agrícola y Pecuaria en el CBTA 140 promueve un enfoque técnico y sustentable en la formación de los estudiantes, alineado con las necesidades del sector productivo regional.</p>
+                    <p>En agricultura, se destacan cultivos como el <strong>melón</strong>, <strong>maíz</strong>, <strong>mango</strong> y <strong>jitomate</strong>, esenciales tanto para el consumo local como para la comercialización a gran escala. En la rama pecuaria, se impulsa la crianza de <strong>vacas</strong> y <strong>borregos</strong>, fomentando prácticas de manejo eficiente y bienestar animal.</p>
+                    <p>Características principales del portal:</p>
                     <ul>
-                        <li>Diseño responsivo adaptado a diferentes dispositivos</li>
-                        <li>Navegación intuitiva con menús claros</li>
-                        <li>Sistema de pestañas para organizar la información</li>
-                        <li>Tarjetas interactivas con efectos al pasar el cursor</li>
+                        <li>Contenido técnico relevante para estudiantes y productores</li>
+                        <li>Diseño responsivo y de fácil navegación</li>
+                        <li>Organización clara mediante pestañas y tarjetas</li>
+                        <li>Acceso a documentos, estadísticas y recursos educativos</li>
                     </ul>
                     <button id="more-info">Más información</button>
                 </div>
@@ -291,18 +94,23 @@
                     <button id="update-stats">Actualizar estadísticas</button>
                 </div>
             </div>
+
+            <section class="info-extra">
+                <h2>¿Qué es Producción Agrícola y Pecuaria?</h2>
+                <p>La producción agrícola y pecuaria es el conjunto de técnicas, conocimientos y tecnologías que permiten obtener alimentos, fibras, combustibles y materias primas a partir del trabajo con la tierra y los animales. En nuestro centro educativo, se enseña a los estudiantes a aplicar prácticas sustentables, usar nuevas tecnologías y comprender la importancia de estos sectores para la economía local y nacional.</p>
+            </section>
         </div>
         
         <div class="sidebar">
             <h2>Información Adicional</h2>
             
             <div class="card">
-                <h3>Acceso Rápido</h3>
+                <h3>Enlaces Útiles</h3>
                 <ul>
-                    <li><a href="#">Preguntas frecuentes</a></li>
-                    <li><a href="#">Centro de ayuda</a></li>
-                    <li><a href="#">Descargar formularios</a></li>
-                    <li><a href="#">Calendario de eventos</a></li>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="Agricultura.html">Agricultura</a></li>
+                    <li><a href="ganaderia.html">Ganaderia (en proceso)</a></li>
+                    <li><a href="RentaDeHuertas.html">Renta de Huertas (estas aqui)</a></li>
                 </ul>
             </div>
             
@@ -312,24 +120,14 @@
                 <button id="check-notifications">Verificar notificaciones</button>
             </div>
         </div>
-        <div class="card">
-            <h3>Enlaces Útiles</h3>
-            <ul>
-              <li><a href="index.html">Inicio</a></li>
-              <li><a href="Agricultura.html">Agricultura (Estás aquí)</a></li>
-              <li><a href="ganaderia.html">Ganadería</a></li>
-              <li><a href="RentaDeMangos.html">Renta de huertas</a></li>
-            </ul>
-          </div>
-        </div>
     </main>
     
     <footer>
         <div class="footer-links">
-            <a href="#">Sobre nosotros</a>
+            <a href="nosotros.html">Sobre nosotros</a>
             <a href="#">Términos de uso</a>
             <a href="#">Política de privacidad</a>
-            <a href="#">Contacto</a>
+            <a href="contacto.html">Contacto</a>
         </div>
         <p>&copy; 2025 Portal Informativo. Todos los derechos reservados.</p>
     </footer>
@@ -339,29 +137,24 @@
         document.querySelectorAll('.tab').forEach(tab => {
             tab.addEventListener('click', () => {
                 const tabId = tab.getAttribute('data-tab');
-                
-                // Desactivar todas las pestañas y contenidos
                 document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
                 document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-                
-                // Activar la pestaña seleccionada y su contenido
                 tab.classList.add('active');
                 document.getElementById(tabId).classList.add('active');
             });
         });
-        
-        // Funcionalidad para el botón de búsqueda
+
+        // Buscar
         document.getElementById('search-button').addEventListener('click', () => {
             const searchText = document.querySelector('.search-bar input').value;
-            if(searchText.trim() !== '') {
+            if (searchText.trim() !== '') {
                 alert(`Buscando: "${searchText}"`);
-                // Aquí iría la lógica real de búsqueda
             } else {
                 alert('Por favor ingrese un término de búsqueda');
             }
         });
-        
-        // Funcionalidad para cargar más documentos
+
+        // Cargar más documentos
         document.getElementById('load-more-docs').addEventListener('click', () => {
             const list = document.getElementById('document-list');
             const newItems = [
@@ -369,7 +162,7 @@
                 'Manual de Usuario',
                 'Informe Técnico'
             ];
-            
+
             newItems.forEach(item => {
                 const li = document.createElement('li');
                 const a = document.createElement('a');
@@ -378,12 +171,12 @@
                 li.appendChild(a);
                 list.appendChild(li);
             });
-            
+
             document.getElementById('load-more-docs').textContent = 'No hay más documentos';
             document.getElementById('load-more-docs').disabled = true;
         });
-        
-        // Funcionalidad para verificar notificaciones
+
+        // Verificar notificaciones
         document.getElementById('check-notifications').addEventListener('click', () => {
             const notifArea = document.getElementById('notification-area');
             const p = notifArea.querySelector('p');
@@ -391,21 +184,20 @@
                           '• Nuevo documento disponible<br>' +
                           '• Actualización del sistema<br>' +
                           '• Recordatorio de evento';
-            
             document.getElementById('check-notifications').textContent = 'Marcar como leídas';
         });
-        
-        // Funcionalidad para el botón "Más información"
+
+        // Más información
         document.getElementById('more-info').addEventListener('click', () => {
-            alert('Esta sección proporcionaría información detallada sobre el portal y sus características.');
+            alert('Esta sección proporciona información detallada sobre el portal y sus características.');
         });
-        
-        // Funcionalidad para actualizar estadísticas
+
+        // Actualizar estadísticas
         document.getElementById('update-stats').addEventListener('click', () => {
             const chart = document.getElementById('chart');
             chart.innerHTML = '<p>Gráfico Actualizado (Simulado)</p>';
             chart.style.backgroundColor = '#e6f7ff';
-            
+
             setTimeout(() => {
                 alert('Estadísticas actualizadas correctamente.');
             }, 500);
