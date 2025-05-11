@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <img src="imagenes/LOGO_CBTA.png" alt="Logo del portal" width="80" height="auto">
+        <img src="LOGO CBTA.jpg" alt="Logo del portal" width="80" height="auto">
         <div class="logo">CBTA 140</div>
         <p>Su fuente confiable de información</p>
     </header>
@@ -17,7 +17,7 @@
         <ul>
             <li><a href="index.html" class="active">Inicio</a></li>
             <li><a href="sector_productivo.html">Area del sector productivo</a></li>
-            <li><a href="contactos.html">Contacto</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
         </ul>
     </nav>
     
@@ -110,7 +110,7 @@
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="Agricultura.html">Agricultura</a></li>
                     <li><a href="404.html">Ganaderia (en proceso)</a></li>
-                    <li><a href="huertas.html">Renta de Huertas</a></li>
+                    <li><a href="huertas.html">Renta de Huertas (estas aqui)</a></li>
                 </ul>
             </div>
             
@@ -124,11 +124,12 @@
     
     <footer>
         <div class="footer-links">
-            <a href="http://www.CBTA140.com/">Más del CBTA 140</a>
-            <a href="http://www.cbta140.com/programs.html">Carreras</a>
-            <a href="contactos.html">Contactos</a>
+            <a href="nosotros.html">Sobre nosotros</a>
+            <a href="#">Términos de uso</a>
+            <a href="#">Política de privacidad</a>
+            <a href="contacto.html">Contacto</a>
         </div>
-        <p>&copy; 2025. Todos los derechos reservados al CBTA Nº140.</p>
+        <p>&copy; 2025 Portal Informativo. Todos los derechos reservados.</p>
     </footer>
     
     <script>
@@ -143,7 +144,7 @@
             });
         });
 
-      
+        
         document.getElementById('search-button').addEventListener('click', () => {
             const searchText = document.querySelector('.search-bar input').value;
             if (searchText.trim() !== '') {
@@ -153,7 +154,7 @@
             }
         });
 
-       
+        
         document.getElementById('load-more-docs').addEventListener('click', () => {
             const list = document.getElementById('document-list');
             const newItems = [
@@ -175,7 +176,7 @@
             document.getElementById('load-more-docs').disabled = true;
         });
 
-        
+     
         document.getElementById('check-notifications').addEventListener('click', () => {
             const notifArea = document.getElementById('notification-area');
             const p = notifArea.querySelector('p');

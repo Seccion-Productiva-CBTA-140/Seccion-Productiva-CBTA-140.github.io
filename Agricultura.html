@@ -5,50 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Agricultura del CBTA 140</title>
   <style>
+    * {
+        box-sizing: border-box;
+    }
+    
     body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
         background-color: #f4f4f9;
         color: #333;
+        line-height: 1.6;
     }
 
     header {
         background-color: #4CAF50;
         color: white;
-        padding: 20px;
+        padding: 15px;
         text-align: center;
     }
 
     header img {
-        max-width: 100px;
+        max-width: 80px;
+        height: auto;
     }
 
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
 
     nav {
         background-color: #333;
+        position: relative;
     }
 
     nav ul {
-        display: flex;
-        justify-content: center;
+        display: none;
+        flex-direction: column;
         list-style: none;
         margin: 0;
         padding: 0;
-        flex-wrap: wrap; 
+        width: 100%;
+    }
+
+    nav ul.show {
+        display: flex;
     }
 
     nav ul li {
         margin: 0;
-        width: 100%; 
+        width: 100%;
     }
 
     nav ul li a {
         color: white;
         text-decoration: none;
-        padding: 15px 10px; 
-        border-radius: 0;
-        display: block; 
+        padding: 12px 10px;
+        border-bottom: 1px solid #444;
+        display: block;
         text-align: center;
     }
 
@@ -56,26 +72,37 @@
         background-color: #575757;
     }
 
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        color: white;
+        cursor: pointer;
+        padding: 12px;
+        width: 100%;
+        text-align: center;
+    }
+
     main {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 20px;
+        flex-direction: column;
+        padding: 15px;
     }
 
     .content {
-        width: 100%; 
+        width: 100%;
         margin-bottom: 20px;
     }
 
     .sidebar {
-        width: 100%; 
+        width: 100%;
     }
 
     .card {
         background-color: white;
         padding: 15px;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         border-radius: 5px;
     }
@@ -83,6 +110,12 @@
     .card h3 {
         margin-top: 0;
         color: #4CAF50;
+        font-size: 1.2rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin-top: 0;
     }
 
     ul {
@@ -95,13 +128,13 @@
     }
 
     button {
-        padding: 12px 16px; 
+        padding: 10px 14px;
         background-color: #4CAF50;
         color: white;
         border: none;
         cursor: pointer;
         border-radius: 5px;
-        font-size: 16px; 
+        font-size: 0.9rem;
     }
 
     button:hover {
@@ -116,21 +149,20 @@
         display: block;
     }
 
-    
     .calendar-grid {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
         grid-gap: 2px;
         margin-top: 8px;
-        font-size: 14px; 
+        font-size: 12px;
     }
 
     .calendar-day {
         text-align: center;
-        padding: 8px; 
+        padding: 6px;
         background-color: #f4f4f4;
         border-radius: 3px;
-        min-height: 20px; 
+        min-height: 20px;
         line-height: 20px;
         overflow: hidden;
     }
@@ -146,21 +178,12 @@
         font-weight: bold;
     }
 
-    .weather-forecast {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-    }
-
-    .weather-day {
-        text-align: center;
-    }
-    
     .calendar-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 8px;
-        font-size: 16px; 
+        font-size: 14px;
     }
     
     #current-month {
@@ -172,7 +195,7 @@
         color: white;
         text-align: center;
         padding: 15px;
-        margin-top: 20px;
+        margin-top: 10px;
     }
     
     .footer-links {
@@ -186,29 +209,87 @@
         color: white;
         margin: 5px 10px;
         text-decoration: none;
-        padding: 5px; 
+        padding: 5px;
+        font-size: 0.9rem;
     }
     
     .footer-links a:hover {
         text-decoration: underline;
     }
 
-
-    .menu-toggle {
-        display: none;
-        background: none;
-        border: none;
-        font-size: 24px;
-        color: white;
-        cursor: pointer;
-        padding: 15px;
-        width: 100%;
-        text-align: center;
+    a {
+        color: #4CAF50;
+        text-decoration: none;
     }
 
-   
-    @media (min-width: 769px) {
-     
+    a:hover {
+        text-decoration: underline;
+    }
+
+    
+    @media (min-width: 768px) {
+        nav ul {
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        nav ul li {
+            width: auto;
+        }
+
+        nav ul li a {
+            padding: 15px;
+            border-bottom: none;
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        nav ul {
+            display: flex !important;
+        }
+
+        main {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .content {
+            width: 65%;
+        }
+
+        .sidebar {
+            width: 30%;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+        }
+
+        .calendar-day {
+            font-size: 14px;
+            padding: 8px;
+        }
+
+        button {
+            font-size: 1rem;
+        }
+
+        .calendar-header {
+            font-size: 16px;
+        }
+    }
+
+    
+    @media (min-width: 1024px) {
         .content {
             width: 70%;
         }
@@ -217,64 +298,25 @@
             width: 25%;
         }
 
-        nav ul li {
-            width: auto;
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            padding: 10px 15px;
-            border-radius: 5px;
-        }
-
-        .menu-toggle {
-            display: none;
-        }
-
-        nav ul {
-            display: flex !important; 
-        }
-    }
-
-    @media (max-width: 768px) {
-        
-        .menu-toggle {
-            display: block;
-        }
-
-        nav ul {
-            display: none; 
-            flex-direction: column;
-        }
-
-        nav ul.show {
-            display: flex; 
-        }
-
-        .calendar-day {
-            font-size: 12px;
-            padding: 5px;
+        h1 {
+            font-size: 2rem;
         }
 
         header {
-            padding: 10px;
+            padding: 20px;
         }
 
-        h1 {
-            font-size: 24px;
-        }
-
-        h3 {
-            font-size: 18px;
+        .logo {
+            font-size: 2rem;
         }
     }
-</style>
+  </style>
 </head>
 <body>
   <header>
     <div class="logo">Agricultura del CBTA 140</div>
     <p>Su fuente de información agrícola confiable</p>
-    <img src="imagenes/LOGO CBTA.jpg" alt="Logo de CBTA 140" />
+    <img src="LOGO CBTA.jpg" alt="Logo de CBTA 140" />
   </header>
 
   <nav>
@@ -288,19 +330,19 @@
 
   <main>
     <div class="content">
- 
       <div id="inicio" class="tab-content active">
         <h1>Bienvenido al Portal de Agricultura del CBTA N°140</h1>
         <div class="card">
           <h3>Información Destacada</h3>
           <p>
-En este pagina solamente se centra en la zona de la agricultura.</p>
-<p>se enseñara el precio del mercado, tiempo que tardan en producir, su epoca/mes ideal.
+            En este pagina solamente se centra en la zona de la agricultura.
+          </p>
+          <p>
+            Se enseñara el precio del mercado, tiempo que tardan en producir, su epoca/mes ideal.
           </p>
         </div>
       </div>
 
- 
       <div id="Cultivos" class="tab-content">
         <h1>Cultivos</h1>
         <div class="card"><h3>Jitomate</h3><p>Época ideal de siembra: enero para que de en abril.</p><p>Tiempo hasta cosecha: 3 Meses</p><p>Necesidades de riego: controlada.</p></div>
@@ -308,7 +350,6 @@ En este pagina solamente se centra en la zona de la agricultura.</p>
         <div class="card"><h3>Maíz</h3><p>Época ideal de siembra: junio - julio.</p><p>Tiempo hasta cosecha: 73-76 días</p><p>Necesidades de riego: controlada.</p></div>
         <div class="card"><h3>Mango</h3><p>Época ideal de siembra: Julio.</p><p>Tiempo hasta cosecha: 3 años</p><p>Necesidades de riego: controlada.</p></div>
       </div>
-
 
       <div id="Precio mercado" class="tab-content">
         <h1>Precio mercado</h1>
@@ -337,13 +378,12 @@ En este pagina solamente se centra en la zona de la agricultura.</p>
         </div>
       </div>
 
-
       <div class="card">
         <h3>Enlaces Útiles</h3>
         <ul>
           <li><a href="index.html">Inicio</a></li>
           <li><a href="Agricultura.html">Agricultura (Estás aquí)</a></li>
-          <li><a href="404.html">Ganadería (En proceso)</a></li>
+          <li><a href="ganaderia.html">Ganadería (En proceso)</a></li>
           <li><a href="huertas.html">Renta de huertas</a></li>
         </ul>
       </div>
@@ -360,22 +400,19 @@ En este pagina solamente se centra en la zona de la agricultura.</p>
   </footer>
 
   <script>
-
     document.addEventListener('DOMContentLoaded', function() {
-
+        
         document.getElementById('menu-toggle').addEventListener('click', function() {
             document.getElementById('main-menu').classList.toggle('show');
         });
 
-
+        
         document.querySelectorAll('.nav-tab').forEach(tab => {
             tab.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    document.getElementById('main-menu').classList.remove('show');
-                }
+                document.getElementById('main-menu').classList.remove('show');
             });
         });
-
+        
         
         document.querySelectorAll('.nav-tab').forEach(tab => {
             tab.addEventListener('click', (e) => {
@@ -388,7 +425,7 @@ En este pagina solamente se centra en la zona de la agricultura.</p>
             });
         });
 
-
+        
         const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
         let currentDate = new Date();
 
@@ -445,10 +482,10 @@ En este pagina solamente se centra en la zona de la agricultura.</p>
             }
         }
 
-       
+        
         updateCalendar();
 
-   
+       
         document.getElementById('prev-month').addEventListener('click', () => {
             currentDate.setMonth(currentDate.getMonth() - 1);
             updateCalendar();
@@ -459,23 +496,19 @@ En este pagina solamente se centra en la zona de la agricultura.</p>
             updateCalendar();
         });
 
- 
+       
         function checkScreenSize() {
-            const menu = document.getElementById('main-menu');
-            if (window.innerWidth > 768) {
-                menu.classList.remove('show');
-                menu.style.display = 'flex';
-            } else {
-                menu.style.display = '';
+            if (window.innerWidth >= 768) {
+                document.getElementById('main-menu').classList.remove('show');
             }
         }
-
+        
         
         checkScreenSize();
-
         
+       
         window.addEventListener('resize', checkScreenSize);
     });
-</script>
+  </script>
 </body>
 </html>

@@ -13,58 +13,83 @@
             --border-color: #dee2e6;
         }
         
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
             padding: 0;
             color: var(--text-color);
             background-color: var(--secondary-color);
+            line-height: 1.6;
         }
         
         header {
             background-color: var(--primary-color);
             color: white;
-            padding: 20px 0;
+            padding: 15px;
             text-align: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         img { 
-            width: 100px;
+            width: 80px;
             height: auto;
             border-radius: 10%;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 1.5rem;
             font-weight: bold;
             margin-bottom: 10px;
         }
         
-        nav {
+       
+        .mobile-nav-toggle {
+            display: block;
             background-color: #1b5e20;
-            padding: 10px 0;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            text-align: center;
+            font-size: 1.2rem;
+            cursor: pointer;
         }
         
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            margin: 0;
+        nav {
+            background-color: #1b5e20;
             padding: 0;
         }
         
+        nav ul {
+            display: none;
+            flex-direction: column;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+        
+        nav ul.show {
+            display: flex;
+        }
+        
         nav li {
-            margin: 0 15px;
+            margin: 0;
+            width: 100%;
         }
         
         nav a {
             color: white;
             text-decoration: none;
             font-weight: 500;
-            padding: 5px 10px;
-            border-radius: 3px;
-            transition: background-color 0.3s;
+            padding: 12px 15px;
+            display: block;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         
         nav a:hover {
@@ -72,27 +97,25 @@
         }
         
         main {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 20px;
+            max-width: 100%;
+            margin: 15px auto;
+            padding: 0 15px;
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
         }
         
         .content {
-            flex: 2;
-            min-width: 300px;
-            padding: 20px;
+            width: 100%;
+            padding: 15px;
             background-color: white;
             border-radius: 5px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
         }
         
         .sidebar {
-            flex: 1;
-            min-width: 250px;
-            margin-left: 20px;
-            padding: 20px;
+            width: 100%;
+            padding: 15px;
             background-color: white;
             border-radius: 5px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
@@ -100,6 +123,11 @@
         
         h1, h2, h3 {
             color: var(--primary-color);
+        }
+        
+        h4 {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
         }
         
         .card {
@@ -111,7 +139,7 @@
         }
         
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
@@ -125,11 +153,12 @@
             background-color: var(--primary-color);
             color: white;
             border: none;
-            padding: 8px 15px;
+            padding: 10px 15px;
             border-radius: 4px;
             cursor: pointer;
             font-weight: 500;
             transition: background-color 0.3s;
+            font-size: 0.9rem;
         }
     
         button:hover, .button:hover {
@@ -139,35 +168,45 @@
         .search-bar {
             display: flex;
             margin-bottom: 20px;
+            flex-wrap: wrap;
         }
         
         .search-bar input {
             flex: 1;
-            padding: 8px;
+            min-width: 150px;
+            padding: 10px;
             border: 1px solid var(--border-color);
-            border-radius: 4px 0 0 4px;
+            border-radius: 4px;
+            margin-right: 5px;
+            margin-bottom: 5px;
         }
         
         .search-bar button {
-            border-radius: 0 4px 4px 0;
+            white-space: nowrap;
+            margin-bottom: 5px;
         }
         
         .tabs {
             display: flex;
             border-bottom: 1px solid var(--border-color);
             margin-bottom: 20px;
+            flex-wrap: wrap;
         }
         
-        .tab {
-            padding: 10px 20px;
+        .nav-tab {
+            padding: 10px;
             cursor: pointer;
             background-color: transparent;
             border: none;
             border-bottom: 3px solid transparent;
             font-weight: 500;
+            margin-bottom: 5px;
+            flex-grow: 1;
+            text-align: center;
+            font-size: 0.9rem;
         }
         
-        .tab.active {
+        .nav-tab.active {
             border-bottom-color: var(--primary-color);
             color: var(--primary-color);
         }
@@ -184,122 +223,42 @@
             background-color: var(--primary-color);
             color: white;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
+            padding: 15px;
+            margin-top: 20px;
         }
         
         .footer-links {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             margin-bottom: 15px;
         }
         
         .footer-links a {
             color: white;
-            margin: 0 15px;
+            margin: 5px 10px;
             text-decoration: none;
-        }
-        
-        .crop-selector {
-            margin-bottom: 20px;
-        }
-        
-        .crop-selector select {
-            padding: 8px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            width: 100%;
-        }
-        
-        .calendar {
-            background-color: #f5f5f5;
-            border-radius: 5px;
-            padding: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .calendar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
-        }
-        
-        .calendar-day {
-            text-align: center;
-            padding: 5px;
-            background-color: white;
-            border-radius: 3px;
-        }
-        
-        .calendar-day.active {
-            background-color: var(--accent-color);
-            color: white;
-        }
-        
-        .weather-widget {
-            background-color: #e1f5fe;
-            border-radius: 5px;
-            padding: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .weather-forecast {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-        }
-        
-        .weather-day {
-            text-align: center;
-            flex: 1;
+            font-size: 0.9rem;
         }
         
         .mango-listings {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-        
-        .variety-timeline {
-            display: grid;
-            grid-template-columns: 100px 1fr;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        
-        .variety-name {
-            font-weight: bold;
-            padding-right: 10px;
-        }
-        
-        .variety-bar {
-            height: 25px;
-            border-radius: 4px;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .timeline {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
+            grid-template-columns: 1fr;
+            gap: 15px;
             margin: 15px 0;
-            border-bottom: 1px solid var(--border-color);
         }
         
-        .timeline-month {
-            text-align: center;
-            font-size: 0.8em;
-            padding: 5px 0;
+        .info-section {
+            margin-bottom: 20px;
+        }
+        
+        .info-section h4 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-section ul {
+            margin-top: 0.5rem;
+            padding-left: 20px;
         }
         
         .faq-item {
@@ -311,38 +270,89 @@
         .faq-item h5 {
             color: var(--primary-color);
             margin-bottom: 5px;
+            margin-top: 10px;
         }
         
-        .info-section {
-            margin-bottom: 20px;
+        .mango-item p {
+            margin: 8px 0;
+            font-size: 0.95rem;
         }
         
-        @media (max-width: 768px) {
-            main {
-                flex-direction: column;
-            }
-            
-            .sidebar {
-                margin-left: 0;
-                margin-top: 20px;
+       
+        @media (min-width: 768px) {
+            .mobile-nav-toggle {
+                display: none;
             }
             
             nav ul {
-                flex-direction: column;
-                align-items: center;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                padding: 10px 0;
             }
             
             nav li {
-                margin: 5px 0;
+                width: auto;
+                margin: 0 15px;
             }
             
-            .weather-forecast {
+            nav a {
+                border-bottom: none;
+                padding: 5px 10px;
+                border-radius: 3px;
+            }
+            
+            main {
+                max-width: 1200px;
+                margin: 20px auto;
+                padding: 0 20px;
+                flex-direction: row;
                 flex-wrap: wrap;
             }
             
-            .weather-day {
-                flex-basis: 33%;
-                margin-bottom: 10px;
+            .content {
+                flex: 2;
+                min-width: 300px;
+                padding: 20px;
+                margin-right: 20px;
+                margin-bottom: 0;
+            }
+            
+            .sidebar {
+                flex: 1;
+                min-width: 250px;
+            }
+            
+            .logo {
+                font-size: 24px;
+            }
+            
+            .mango-listings {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .search-bar {
+                margin-bottom: 20px;
+            }
+            
+            .search-bar input {
+                margin-bottom: 0;
+            }
+            
+            .nav-tab {
+                flex-grow: 0;
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .mango-listings {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            header {
+                padding: 20px 0;
             }
         }
     </style>
@@ -350,203 +360,234 @@
 <body>
   <header>
     <div class="logo">Huertas del CBTA 140</div>
-    <img src="imagenes/LOGO CBTA.jpg" alt="Logo de CBTA 140" />
+    <img src="LOGO CBTA.jpg" alt="Logo de CBTA 140" />
   </header>
 
+  <nav>
+    <button class="mobile-nav-toggle" id="mobile-nav-toggle">☰ Menú</button>
+    <ul id="main-nav">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="Agricultura.html">Agricultura</a></li>
+      <li><a href="ganaderia.html">Ganadería</a></li>
+      <li><a href="huertas.html">Renta de Huertas</a></li>
+    </ul>
+  </nav>
     
-    <main>
-        <div class="content">
-            <div class="search-bar">
-                <input type="text" placeholder="Buscar...">
-                <button id="search-mango-button">Buscar</button>
-            </div>
+  <main>
+    <div class="content">
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar huerta...">
+        <button id="search-mango-button">Buscar</button>
+      </div>
 
-            <div class="tabs">
-                <button class="nav-tab active" data-tab="huerta-tab1">Huertas Disponibles</button>
-                <button class="nav-tab" data-tab="huerta-tab2">Información para Arrendatarios</button>
-            </div>
+      <div class="tabs">
+        <button class="nav-tab active" data-tab="huerta-tab1">Huertas Disponibles</button>
+        <button class="nav-tab" data-tab="huerta-tab2">Información para Arrendatarios</button>
+      </div>
 
-            <div id="huerta-tab1" class="tab-content active">
-                <div class="mango-listings">
-                    <div class="card mango-item">
-                        <h4>Huerta 1 mango</h4>
-                        <p><strong>Ubicación:</strong> Norte del invernadero</p>
-                        <p><strong>Tamaño:</strong> 4.5 hectáreas</p>
-                        <p><strong>Variedad:</strong>Ataulfo</p>
-                        <p><strong>Precio de renta:</strong> $100,000 por temporada</p>
-                        <p><strong>Características:</strong> invluye agua y sistema de riego.</p>
-                    </div>
+      <div id="huerta-tab1" class="tab-content active">
+        <div class="mango-listings">
+          <div class="card mango-item">
+            <h4>Huerta 1 mango</h4>
+            <p><strong>Ubicación:</strong> Norte del invernadero</p>
+            <p><strong>Tamaño:</strong> 4.5 hectáreas</p>
+            <p><strong>Variedad:</strong> Ataulfo</p>
+            <p><strong>Precio de renta:</strong> $100,000 por temporada</p>
+            <p><strong>Características:</strong> Incluye agua y sistema de riego.</p>
+          </div>
 
-                    <div class="card mango-item">
-                        <h4>Huerta 2 mango</h4>
-                        <p><strong>Ubicación:</strong> Zona Noreste</p>
-                        <p><strong>Tamaño:</strong> 7.56 hectáreas</p>
-                        <p><strong>Variedad:</strong> heidi Mango Manila</p>
-                        <p><strong>Precio de renta:</strong> $300,000 por temporada</p>
-                        <p><strong>Características:</strong> Suelo fértil, acceso a agua natural.</p>
-                    </div>
+          <div class="card mango-item">
+            <h4>Huerta 2 mango</h4>
+            <p><strong>Ubicación:</strong> Zona Noreste</p>
+            <p><strong>Tamaño:</strong> 7.56 hectáreas</p>
+            <p><strong>Variedad:</strong> Heidi Mango Manila</p>
+            <p><strong>Precio de renta:</strong> $300,000 por temporada</p>
+            <p><strong>Características:</strong> Suelo fértil, acceso a agua natural.</p>
+          </div>
 
-                    <div class="card mango-item">
-                        <h4>Huerta 3 mango (en preparación)</h4>
-                        <p><strong>Ubicación:</strong> Sureste del plantel educativo</p>
-                        <p><strong>Tamaño:</strong> 4.5 hectáreas</p>
-                        <p><strong>Variedad:</strong> Mango Ataulfo</p>
-                        <p><strong>Precio de renta:</strong> $(pendiente) por temporada</p>
-                        <p><strong>Características:</strong> Sistema de riego por goteo.</p>
-                    </div>
+          <div class="card mango-item">
+            <h4>Huerta 3 mango (en preparación)</h4>
+            <p><strong>Ubicación:</strong> Sureste del plantel educativo</p>
+            <p><strong>Tamaño:</strong> 4.5 hectáreas</p>
+            <p><strong>Variedad:</strong> Mango Ataulfo</p>
+            <p><strong>Precio de renta:</strong> $(pendiente) por temporada</p>
+            <p><strong>Características:</strong> Sistema de riego por goteo.</p>
+          </div>
 
-                    <div class="card mango-item">
-                        <h4>Huerta Maíz</h4>
-                        <p><strong>Ubicación:</strong> Norte del plantel educativo</p>
-                        <p><strong>Tamaño:</strong> 5.53 hectáreas</p>
-                        <p><strong>Variedad:</strong> Maíz Criollo</p>
-                        <p><strong>Precio de renta:</strong> $133,333 por temporada</p>
-                        <p><strong>Características:</strong> Sistema de riego por goteo.</p>
-                    </div>
+          <div class="card mango-item">
+            <h4>Huerta Maíz</h4>
+            <p><strong>Ubicación:</strong> Norte del plantel educativo</p>
+            <p><strong>Tamaño:</strong> 5.53 hectáreas</p>
+            <p><strong>Variedad:</strong> Maíz Criollo</p>
+            <p><strong>Precio de renta:</strong> $133,333 por temporada</p>
+            <p><strong>Características:</strong> Sistema de riego por goteo.</p>
+          </div>
 
-                    <div class="card mango-item">
-                        <h4>Huerta Melón</h4>
-                        <p><strong>Ubicación:</strong> Sureste del plantel educativo</p>
-                        <p><strong>Tamaño:</strong> 5.53 hectáreas</p>
-                        <p><strong>Variedad:</strong> Melón</p>
-                        <p><strong>Precio de renta:</strong> $1.6Millones - $2M por temporada</p>
-                        <p><strong>Características:</strong> Sistema de riego por goteo.</p>
-                  
-                    </div>
-                </div>
-            </div>
-
-            <div id="huerta-tab2" class="tab-content">
-                <div class="card">
-                    <h3>Información para los Arrendatarios</h3>
-                    <p>Nuestra selección de huertas de mango disponibles para renta en el plantel. Las rentas incluyen acceso a sistemas de riego, asistencia técnica y opciones de cosecha.</p>
-                    
-                    <div class="info-section">
-                        <h4>Requisitos para el arriendo</h4>
-                        <ul>
-                            <li>Depósito inicial del 50% del valor total</li>
-                            <li>Firma de contrato de arrendamiento</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="info-section">
-                        <h4>Beneficios incluidos</h4>
-                        <ul>
-                            <li>Mantenimiento básico de sistemas de riego</li>
-                            <li>Agua incluida</li>
-                            <li>Acceso a instalaciones</li>
-                            <li>Posibilidad de renovación prioritaria para la siguiente temporada</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="info-section">
-                        <h4>Preguntas frecuentes</h4>
-                        
-                        <div class="faq-item">
-                            <h5>¿Cuál es la duración del contrato de arrendamiento?</h5>
-                            <p> generalmente de 12 meses dependiendo del tipo de cultivo.</p>
-                        </div>
-                        
-                        <div class="faq-item">
-                            <h5>¿Se puede modificar el sistema de riego existente?</h5>
-                            <p>Sí, con previa autorización por escrito de la administración del CBTA 140.</p>
-                        </div>
-                        
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Enlaces Útiles</h3>
-                <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="Agricultura.html">Agricultura</a></li>
-                    <li><a href="404.html">Ganadería (En Proceso)</a></li>
-                    <li><a href="huertas.html">Renta de huertas (Estás aquí)</a></li>
-                </ul>
-            </div>
+          <div class="card mango-item">
+            <h4>Huerta Melón</h4>
+            <p><strong>Ubicación:</strong> Sureste del plantel educativo</p>
+            <p><strong>Tamaño:</strong> 5.53 hectáreas</p>
+            <p><strong>Variedad:</strong> Melón</p>
+            <p><strong>Precio de renta:</strong> $1.6Millones - $2M por temporada</p>
+            <p><strong>Características:</strong> Sistema de riego por goteo.</p>
+          </div>
         </div>
-    </main>
+      </div>
 
-    <footer>
-        <div class="footer-links">
-            <a href="http://www.CBTA140.com/">Más del CBTA 140</a>
-            <a href="http://www.cbta140.com/programs.html">Carreras</a>
-            <a href="contactos.html">Contactos</a>
-        </div>
-        <p>&copy; 2025. Todos los derechos reservados al CBTA Nº140.</p>
-    </footer>
-
-    <script>
-       
-        const searchInput = document.querySelector('.search-bar input');
-        const searchButton = document.getElementById('search-mango-button');
-        const mangoItems = document.querySelectorAll('.mango-item');
-        const searchBar = document.querySelector('.search-bar');
-        const tabButtons = document.querySelectorAll('.nav-tab');
-
-     
-        function performSearch() {
-            const searchTerm = searchInput.value.toLowerCase();
-            
+      <div id="huerta-tab2" class="tab-content">
+        <div class="card">
+          <h3>Información para los Arrendatarios</h3>
+          <p>Nuestra selección de huertas de mango disponibles para renta en el plantel. Las rentas incluyen acceso a sistemas de riego, asistencia técnica y opciones de cosecha.</p>
           
-            mangoItems.forEach(item => {
-                const itemText = item.textContent.toLowerCase();
-                
-               
-                if (itemText.includes(searchTerm)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
+          <div class="info-section">
+            <h4>Requisitos para el arriendo</h4>
+            <ul>
+              <li>Depósito inicial del 50% del valor total</li>
+              <li>Firma de contrato de arrendamiento</li>
+            </ul>
+          </div>
+          
+          <div class="info-section">
+            <h4>Beneficios incluidos</h4>
+            <ul>
+              <li>Mantenimiento básico de sistemas de riego</li>
+              <li>Agua incluida</li>
+              <li>Acceso a instalaciones</li>
+              <li>Posibilidad de renovación prioritaria para la siguiente temporada</li>
+            </ul>
+          </div>
+          
+          <div class="info-section">
+            <h4>Preguntas frecuentes</h4>
+            
+            <div class="faq-item">
+              <h5>¿Cuál es la duración del contrato de arrendamiento?</h5>
+              <p>Generalmente de 12 meses dependiendo del tipo de cultivo.</p>
+            </div>
+            
+            <div class="faq-item">
+              <h5>¿Se puede modificar el sistema de riego existente?</h5>
+              <p>Sí, con previa autorización por escrito de la administración del CBTA 140.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-       
-        function handleTabChange(activeTabId) {
-       
-            if (activeTabId === 'huerta-tab1') {
-                searchBar.style.display = 'flex';
-            } else {
-                searchBar.style.display = 'none';
-            }
-        }
+    <div class="sidebar">
+      <div class="card">
+        <h3>Enlaces Útiles</h3>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="Agricultura.html">Agricultura</a></li>
+          <li><a href="ganaderia.html">Ganadería (En Proceso)</a></li>
+          <li><a href="huertas.html">Renta de huertas (Estás aquí)</a></li>
+        </ul>
+      </div>
+      
 
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="http://www.CBTA140.com/">Más del CBTA 140</a>
+      <a href="http://www.cbta140.com/programs.html">Carreras</a>
+      <a href="contactos.html">Contactos</a>
+    </div>
+    <p>&copy; 2025. Todos los derechos reservados al CBTA Nº140.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      
+      const mobileToggle = document.getElementById('mobile-nav-toggle');
+      const mainNav = document.getElementById('main-nav');
+      
+      mobileToggle.addEventListener('click', function() {
+        mainNav.classList.toggle('show');
+      });
+      
+      
+      const navLinks = document.querySelectorAll('nav a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          if (window.innerWidth < 768) {
+            mainNav.classList.remove('show');
+          }
+        });
+      });
+      
+      
+      const searchInput = document.querySelector('.search-bar input');
+      const searchButton = document.getElementById('search-mango-button');
+      const mangoItems = document.querySelectorAll('.mango-item');
+      const searchBar = document.querySelector('.search-bar');
+      
+      function performSearch() {
+        const searchTerm = searchInput.value.toLowerCase();
         
-        searchButton.addEventListener('click', performSearch);
-
-
-        searchInput.addEventListener('keyup', function(event) {
-            if (event.key === 'Enter') {
-                performSearch();
-            }
-            
- 
+        mangoItems.forEach(item => {
+          const itemText = item.textContent.toLowerCase();
+          
+          if (itemText.includes(searchTerm)) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
         });
-
-   
-        tabButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-
-
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-
-               
-                const target = button.getAttribute('data-tab');
-                button.classList.add('active');
-                document.getElementById(target).classList.add('active');
-                
-            
-                handleTabChange(target);
-            });
+      }
+      
+      searchButton.addEventListener('click', performSearch);
+      
+      searchInput.addEventListener('keyup', function(event) {
+        if (event.key === 'Enter') {
+          performSearch();
+        }
+      });
+      
+      
+      const tabButtons = document.querySelectorAll('.nav-tab');
+      
+      function handleTabChange(activeTabId) {
+        if (activeTabId === 'huerta-tab1') {
+          searchBar.style.display = 'flex';
+        } else {
+          searchBar.style.display = 'none';
+        }
+      }
+      
+      tabButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+          e.preventDefault();
+          
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+          
+          const target = button.getAttribute('data-tab');
+          button.classList.add('active');
+          document.getElementById(target).classList.add('active');
+          
+          handleTabChange(target);
         });
-
-   
-        const activeTabId = document.querySelector('.tab-content.active').id;
-        handleTabChange(activeTabId);
-    </script>
+      });
+      
+      
+      const activeTabId = document.querySelector('.tab-content.active').id;
+      handleTabChange(activeTabId);
+      
+      
+      function checkScreenSize() {
+        if (window.innerWidth >= 768) {
+          mainNav.classList.remove('show');
+        }
+      }
+      
+      
+      checkScreenSize();
+      
+     
+      window.addEventListener('resize', checkScreenSize);
+    });
+  </script>
 </body>
 </html>
