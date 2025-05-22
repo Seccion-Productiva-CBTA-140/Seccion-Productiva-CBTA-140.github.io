@@ -4,12 +4,255 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sector Productivo - CBTA 140</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #4CAf50;
+            --secondary-color: #f8f9fa;
+            --accent-color: #4caf50;
+            --text-color: #333;
+            --border-color: #dee2e6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        header img {
+            border-radius: 10%;
+            width: 130px;
+            height: auto;
+            margin: 0;
+            background-color: transparent;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: lighter;
+            margin-bottom: 10px;
+        }
+        
+        /* Estilos corregidos para las imágenes dentro de las cards */
+        .ima {
+            max-width: 100%;
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin: 10px 0;
+            display: block;
+        }
+        
+        .end {
+            width: 400px;
+            height: 300px;
+            display: block;
+            margin: auto;
+        }
+        
+        nav {
+            background-color: #45a049;
+            padding: 10px 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav li {
+            margin: 0 15px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .content {
+            flex: 2;
+            min-width: 300px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar {
+            flex: 1;
+            min-width: 250px;
+            margin-left: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #dee2e6;
+        }
+        
+        h2 {
+            color: #1b5e20;  
+        }
+        
+        .card {
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .card h3 {
+            margin-top: 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+        
+        button, .button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover, .button:hover {
+            background-color: var(--accent-color);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 5px 0;
+            }
+            
+            .ima {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ima {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+    
     <header>
-        <img src="imagenes/LOGO_CBTA.png" alt="Logo del portal" width="80" height="auto">
+        <img src="LOGO_CBTA.png" alt="Logo del portal" width="80" height="auto">
         <div class="logo">CBTA 140</div>
+        <h1>Sector Productivo Agrícola y Pecuario</h1>
         <p>Su fuente confiable de información</p>
     </header>
 
@@ -17,14 +260,12 @@
         <ul>
             <li><a href="index.html" class="active">Inicio</a></li>
             <li><a href="sector_productivo.html">Area del sector productivo</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="contactos.html">contactos</a></li>
         </ul>
     </nav>
 
     <main>
         <div class="content">
-            <h1>Sector Productivo Agrícola y Pecuario</h1>
-
             <div class="card">
                 <h3>Importancia del Sector Productivo</h3>
                 <p>El sector agrícola y pecuario constituye la base económica de muchas comunidades rurales, incluida la nuestra. La producción de alimentos, materias primas y bienes de consumo es esencial para la seguridad alimentaria, la economía regional y la generación de empleo.</p>
@@ -33,9 +274,9 @@
             <div class="card">
                 <h3>Producción Agrícola</h3>
                 <p>Nuestro entorno agrícola se especializa en cultivos de alto valor como:</p>
+                <img class="ima" src="maiz.jpg" alt="Cultivo de maíz">
                 <ul>
-                    <li><strong>Melón:</strong> Cultivado por su alta demanda y exportación.</li><br>
-                    <img>
+                    <li><strong>Melón:</strong> Cultivado por su alta demanda y exportación.</li>
                     <li><strong>Maíz:</strong> Base de la alimentación nacional y forraje para animales.</li>
                     <li><strong>Mango:</strong> Producto tropical de gran valor comercial.</li>
                     <li><strong>Jitomate:</strong> Cultivo hortícola esencial para consumo y mercado.</li>
@@ -46,17 +287,12 @@
             <div class="card">
                 <h3>Producción Pecuaria</h3>
                 <p>La actividad pecuaria se enfoca en:</p>
+                <img src="bobinos.JPG" class="ima" alt="Ganado bovino">
                 <ul>
-                    <li><strong>Vacas:</strong> Producción de carne y leche para el abasto local y comercial.</li>
+                    <li><strong>Vacas:</strong> Producción de carne para el abasto local y comercial.</li>
                     <li><strong>Borregos:</strong> Criados por su carne y adaptabilidad al medio rural.</li>
                 </ul>
                 <p>Más información en <a href="https://www.gob.mx/senasica" target="_blank">SENASICA - Salud Animal</a>.</p>
-            </div>
-
-            <div class="card">
-                <h3>Desarrollo Sustentable</h3>
-                <p>El CBTA 140 promueve el uso responsable de los recursos naturales, el manejo integrado de plagas y la rotación de cultivos, fomentando una agricultura amigable con el medio ambiente.</p>
-                <p>Consulta prácticas sustentables en <a href="https://www.fao.org/sustainability/es/" target="_blank">FAO - Agricultura Sostenible</a>.</p>
             </div>
 
             <div class="card">
@@ -65,46 +301,41 @@
                 <p>Más sobre educación técnica agropecuaria en <a href="https://educacionmedia.sep.gob.mx" target="_blank">Educación Media Superior - SEP</a>.</p>
             </div>
         </div>
-
-        <div class="sidebar">
-            <h2>Información Adicional para su interes</h2>
-            <div class="card">
-                <h3>Enlaces de interes</h3>
-                <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="Agricultura.html">Agricultura</a></li>
-                    <li><a href="404.html">Ganaderia (en proceso)</a></li>
-                    <li><a href="huertas.html">Renta de Huertas</a></li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>Enlaces de Información en la web</h3>
-                <ul>
-                    <li><a href="https://www.gob.mx/agricultura" target="_blank">Secretaría de Agricultura</a></li>
-                    <li><a href="https://www.gob.mx/senasica" target="_blank">SENASICA</a></li>
-                    <li><a href="https://www.fao.org" target="_blank">Organización FAO</a></li>
-                    <li><a href="https://educacionmedia.sep.gob.mx" target="_blank">SEP - EMS</a></li>
-                </ul>
-            </div>
-        </div>
     </main>
+
     <footer>
         <div class="footer-links">
-            <a href="http://www.CBTA140.com/">Más del CBTA 140</a>
-            <a href="http://www.cbta140.com/programs.html">Carreras</a>
-            <a href="contactos.html">Contactos</a>
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="sector_productivo.html">Area del sector productivo</a></li>
+            <li><a href="contactos.html">contactos</a></li>
+
         </div>
-        <p>&copy; 2025. Todos los derechos reservados al CBTA Nº140.</p>
+        <p>&copy; 2025 CBTA 140. Todos los derechos reservados.</p>
     </footer>
+
     <script>
-        document.getElementById('check-notifications').addEventListener('click', () => {
-            const notifArea = document.getElementById('notification-area');
-            const p = notifArea.querySelector('p');
-            p.innerHTML = '¡Tiene 2 nuevas notificaciones!<br><br>' +
-                          '• Nuevo recurso publicado<br>' +
-                          '• Evento programado en el campo de prácticas';
-            document.getElementById('check-notifications').textContent = 'Marcar como leídas';
+        
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 1000);
         });
+
+        
+        const checkNotifications = document.getElementById('check-notifications');
+        if (checkNotifications) {
+            checkNotifications.addEventListener('click', () => {
+                const notifArea = document.getElementById('notification-area');
+                if (notifArea) {
+                    const p = notifArea.querySelector('p');
+                    p.innerHTML = '¡Tiene 2 nuevas notificaciones!<br><br>' +
+                                  '• Nuevo recurso publicado<br>' +
+                                  '• Evento programado en el campo de prácticas';
+                    checkNotifications.textContent = 'Marcar como leídas';
+                }
+            });
+        }
     </script>
 </body>
 </html>

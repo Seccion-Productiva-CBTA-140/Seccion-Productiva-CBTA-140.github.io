@@ -1,382 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ganadería del CBTA 140</title>
-  <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f9;
-        color: #333;
-    }
-
-    header {
-        background-color: #4CAF50;
-        color: white;
-        padding: 20px;
-        text-align: center;
-    }
-
-    header img {
-        max-width: 100px;
-    }
-
-
-    nav {
-        background-color: #333;
-    }
-
-    nav ul {
-        display: flex;
-        justify-content: center;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        flex-wrap: wrap; 
-    }
-
-    nav ul li {
-        margin: 0;
-        width: 100%; 
-    }
-
-    nav ul li a {
-        color: white;
-        text-decoration: none;
-        padding: 15px 10px; 
-        border-radius: 0;
-        display: block; 
-        text-align: center;
-    }
-
-    nav ul li a.active, nav ul li a:hover {
-        background-color: #575757;
-    }
-
-    main {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 20px;
-    }
-
-    .content {
-        width: 100%; 
-        margin-bottom: 20px;
-    }
-
-    .sidebar {
-        width: 100%; 
-    }
-
-    .card {
-        background-color: white;
-        padding: 15px;
-        margin-bottom: 20px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        border-radius: 5px;
-    }
-
-    .card h3 {
-        margin-top: 0;
-        color: #4CAF50;
-    }
-
-    ul {
-        list-style: none;
-        padding-left: 0;
-    }
-
-    ul li {
-        margin: 5px 0;
-    }
-
-    button {
-        padding: 12px 16px; 
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-        font-size: 16px;
-    }
-
-    button:hover {
-        background-color: #45a049;
-    }
-
-    .tab-content {
-        display: none;
-    }
-
-    .tab-content.active {
-        display: block;
-    }
-
-
-    .calendar-grid {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        grid-gap: 2px;
-        margin-top: 8px;
-        font-size: 14px; 
-    }
-
-    .calendar-day {
-        text-align: center;
-        padding: 8px; 
-        background-color: #f4f4f4;
-        border-radius: 3px;
-        min-height: 20px; 
-        line-height: 20px;
-        overflow: hidden;
-    }
-
-    .calendar-day.active {
-        background-color: #4CAF50;
-        color: white;
-    }
-
-    .calendar-day.important {
-        background-color: #ffcccc;
-        color: #b30000;
-        font-weight: bold;
-    }
-
-    .weather-forecast {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-    }
-
-    .weather-day {
-        text-align: center;
-    }
-    
-    .calendar-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 8px;
-        font-size: 16px; 
-    }
-    
-    #current-month {
-        font-weight: bold;
-    }
-    
-    footer {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 15px;
-        margin-top: 20px;
-    }
-    
-    .footer-links {
-        margin-bottom: 10px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .footer-links a {
-        color: white;
-        margin: 5px 10px;
-        text-decoration: none;
-        padding: 5px; 
-    }
-    
-    .footer-links a:hover {
-        text-decoration: underline;
-    }
-
-    
-    .menu-toggle {
-        display: none;
-        background: none;
-        border: none;
-        font-size: 24px;
-        color: white;
-        cursor: pointer;
-        padding: 15px;
-        width: 100%;
-        text-align: center;
-    }
-
-
-    @media (min-width: 769px) {
-     
-        .content {
-            width: 70%;
-        }
-
-        .sidebar {
-            width: 25%;
-        }
-
-        nav ul li {
-            width: auto;
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            padding: 10px 15px;
-            border-radius: 5px;
-        }
-
-        .menu-toggle {
-            display: none;
-        }
-
-        nav ul {
-            display: flex !important; 
-        }
-    }
-
-    @media (max-width: 768px) {
-
-        .menu-toggle {
-            display: block;
-        }
-
-        nav ul {
-            display: none; 
-            flex-direction: column;
-        }
-
-        nav ul.show {
-            display: flex; 
-        }
-
-        .calendar-day {
-            font-size: 12px;
-            padding: 5px;
-        }
-
-        header {
-            padding: 10px;
-        }
-
-        h1 {
-            font-size: 24px;
-        }
-
-        h3 {
-            font-size: 18px;
-        }
-    }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ganadería - CBTA 140</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+<div id="preloader">
+    <div class="spinner"></div>
+  </div>
   <header>
-    <div class="logo">Ganadería del CBTA 140</div>
-    <p>Su fuente de información ganadera confiable</p>
-    <img src="imagenes/LOGO CBTA.jpg" alt="Logo de CBTA 140" />
+    <img src="LOGO_CBTA.png">
+    <h1>Ganadería - CBTA 140</h1>
+    <p>Educación Agropecuaria para el Futuro</p>
   </header>
-
-  <nav>
-    <ul>
-      <li><a href="#" class="nav-tab active" data-tab="inicio">Inicio</a></li>
-      <li><a href="#" class="nav-tab" data-tab="razas">Razas</a></li>
-      <li><a href="#" class="nav-tab" data-tab="precio-mercado">Precio mercado</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <div class="content">
- 
-      <div id="inicio" class="tab-content active">
-        <h1>Bienvenido al Portal de Ganadería del CBTA N°140</h1>
-        <div class="card">
-          <h3>Información Destacada</h3>
-          <p>
-            Bienvenido a su portal especializado en ganadería. Aquí encontrará información actualizada sobre razas bovinas y ovinas,
-            técnicas de cría sostenible y recomendaciones para optimizar la producción de su ganado.
-          </p>
-          <p>Características principales:</p>
-          <ul>
-            <li>Calendario ganadero interactivo</li>
-            <li>Información detallada sobre razas regionales</li>
-            <li>Recomendaciones veterinarias</li>
-            <li>Consejos de expertos para maximizar su producción</li>
-          </ul>
-        </div>
-      </div>
-
- 
-      <div id="razas" class="tab-content">
-        <h1>Razas</h1>
-        <div class="card"><h3>Ganado Bovino</h3>
-          <div class="card"><h3>Holstein</h3><p>Origen: Holanda</p><p>Uso principal: Producción de leche</p><p>Características: Son vacas de gran tamaño, con manchas blancas y negras. Excelentes productoras de leche, con un promedio de 8,000 litros por lactancia.</p></div>
-          <div class="card"><h3>Brahman</h3><p>Origen: India (desarrollada en EE.UU.)</p><p>Uso principal: Producción de carne</p><p>Características: Alta resistencia al calor y parásitos, con una característica joroba en el lomo. Son ideales para climas tropicales y subtropicales.</p></div>
-        </div>
-        
-        <div class="card"><h3>Ganado Ovino</h3>
-          <div class="card"><h3>Pelibuey</h3><p>Origen: África (adaptada en México)</p><p>Uso principal: Carne</p><p>Características: Oveja de pelo (no lana), alta resistencia a climas cálidos, buena fertilidad y adaptabilidad a diferentes condiciones.</p></div>
-          <div class="card"><h3>Suffolk</h3><p>Origen: Reino Unido</p><p>Uso principal: Carne</p><p>Características: Raza de gran tamaño, cara negra y extremidades también negras. Excelente conformación cárnica y rápido crecimiento.</p></div>
-        </div>
-      </div>
-
-
-      <div id="precio-mercado" class="tab-content">
-        <h1>Precio mercado</h1>
-        <div class="card">
-          <h3>Precios del Mercado</h3>
-          <ul id="market-prices">
-            <li>Ganado Bovino (pie de cría): $25,000-$35,000/ejemplar</li>
-            <li>Ganado Bovino (engorda): $70-$85/Kilo en pie</li>
-            <li>Ovino Pelibuey: $2,500-$3,500/ejemplar</li>
-            <li>Ovino Suffolk: $3,000-$4,500/ejemplar</li>
-            <li>Leche fresca: $9-$12/Litro</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-      <div class="card">
-        <h3>Enlaces Útiles</h3>
+<nav>
         <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="Agricultura.html">Agricultura</a></li>
-          <li><a href="ganaderia.html">Ganaderia (Estas aqui)</a></li>
-          <li><a href="RentaDeMangos.html">Renta de huertas</a></li>
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="sector_productivo.html">Area del sector productivo</a></li>
+            <li><a href="contactos.html">contactos</a></li>
         </ul>
-      </div>
-    </div>
+    </nav>
+  <main>
+    <h2>Las Vacas en la Producción Agropecuaria</h2>
+    <p>
+      En el CBTA 140, la ganadería es una de las áreas fundamentales para la formación técnica de los estudiantes. 
+      Las vacas representan una parte clave en la producción de leche, carne y abono orgánico.
+    </p>
+    <img src="bobinos.JPG" class="ima">
+<br><br><br>
+    
+    <p>
+      El manejo adecuado del ganado bovino incluye la alimentación balanceada, cuidado veterinario y bienestar animal.
+      Los alumnos aprenden a trabajar con responsabilidad y respeto hacia los animales.
+    </p>
+
+    <h2>Importancia Económica</h2>
+    <p>
+      La producción ganadera no solo contribuye a la economía rural, sino que también impulsa el desarrollo sustentable 
+      en las comunidades agrícolas.
+    </p>
   </main>
 
   <footer>
-    <div class="footer-links">
-      <a href="http://www.CBTA140.com/">Más del CBTA 140</a>
-      <a href="http://www.cbta140.com/programs.html">Carreras</a>
-      <a href="contactos.html">Contactos</a>
-    </div>
-    <p>&copy; 2025. Todos los derechos reservados al CBTA Nº140.</p>
+    <p>&copy; 2025 CBTA 140 | Módulo de Ganadería</p>
   </footer>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const tabs = document.querySelectorAll(".nav-tab");
-      const contents = document.querySelectorAll(".tab-content");
-  
-      tabs.forEach(tab => {
-        tab.addEventListener("click", function (e) {
-          e.preventDefault();
-  
-    
-          tabs.forEach(t => t.classList.remove("active"));
-          contents.forEach(c => c.classList.remove("active"));
-  
-          
-          this.classList.add("active");
-          const selectedTab = this.getAttribute("data-tab");
-          document.getElementById(selectedTab).classList.add("active");
-        });
-      });
-    });
-  </script>
-  
+
 </body>
 </html>
